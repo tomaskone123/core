@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/07 13:47:09 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/07 17:06:25 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,14 @@
 // See README in the root project for more information.
 // -----------------------------------------------------------------------------
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include "../lib/MLX42/include/MLX42MLX42.h"
-
-#define WIDTH 512
-#define HEIGHT 512
+#include "../so_long.h"
 
 static mlx_image_t* image;
 
 // -----------------------------------------------------------------------------
-
 int32_t ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
 {
-    return (r << 24 | g << 16 | b << 8 | a);
+	return (r << 24 | g << 16 | b << 8 | a);
 }
 
 void ft_randomize(void* param)
@@ -45,9 +38,11 @@ void ft_randomize(void* param)
 				rand() % 0xFF  // A
 			);
 			mlx_put_pixel(image, i, y, color);
+			ft_printf("%d\n", ft_isalnum(300));
 		}
 	}
 }
+
 
 void ft_hook(void* param)
 {
@@ -89,7 +84,6 @@ int32_t main(void)
 		puts(mlx_strerror(mlx_errno));
 		return(EXIT_FAILURE);
 	}
-
 	mlx_loop_hook(mlx, ft_randomize, mlx);
 	mlx_loop_hook(mlx, ft_hook, mlx);
 

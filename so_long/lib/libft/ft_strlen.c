@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 17:23:45 by tomas             #+#    #+#             */
-/*   Updated: 2024/06/05 14:42:54 by tkonecny         ###   ########.fr       */
+/*   Created: 2024/04/03 17:03:03 by tomas             #+#    #+#             */
+/*   Updated: 2024/06/05 14:45:23 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <errno.h>
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+size_t	ft_strlen(const char *s)
 {
-	void	*ptr;
+	int	i;
 
-	if (nmemb != 0 && size > __SIZE_MAX__ / nmemb)
-		return (NULL);
-	if (nmemb == 0 || size == 0)
+	i = 0;
+	while (*s)
 	{
-		nmemb = 1;
-		size = 1;
+		i++;
+		s++;
 	}
-	ptr = malloc(nmemb * size);
-	if (ptr)
-		ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	return (i);
 }

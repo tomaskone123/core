@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 17:23:45 by tomas             #+#    #+#             */
-/*   Updated: 2024/06/05 14:42:54 by tkonecny         ###   ########.fr       */
+/*   Created: 2024/04/07 12:48:06 by tomas             #+#    #+#             */
+/*   Updated: 2024/05/28 16:13:39 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <errno.h>
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	void	*ptr;
+	char		*pdest;
+	const char	*psrc;
 
-	if (nmemb != 0 && size > __SIZE_MAX__ / nmemb)
+	pdest = dest;
+	psrc = src;
+	if (!dest && !src)
 		return (NULL);
-	if (nmemb == 0 || size == 0)
-	{
-		nmemb = 1;
-		size = 1;
-	}
-	ptr = malloc(nmemb * size);
-	if (ptr)
-		ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	while (n--)
+		*(pdest++) = *psrc++;
+	return (dest);
 }

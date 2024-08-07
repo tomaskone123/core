@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 16:02:13 by tomas             #+#    #+#             */
-/*   Updated: 2024/06/07 16:58:59 by tkonecny         ###   ########.fr       */
+/*   Created: 2024/03/31 14:19:40 by tomas             #+#    #+#             */
+/*   Updated: 2024/04/03 19:09:24 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <aio.h>
-#include <stdio.h>
-#include <unistd.h>
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_isdigit(int c)
 {
-	ssize_t	result;
+	int	result;
 
-	result = write(fd, &c, 1);
+	result = 0;
+	if ((c >= '0' && c <= '9'))
+	{
+		result = 1;
+	}
+	return (result);
 }

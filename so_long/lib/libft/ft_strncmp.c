@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 17:23:45 by tomas             #+#    #+#             */
-/*   Updated: 2024/06/05 14:42:54 by tkonecny         ###   ########.fr       */
+/*   Created: 2024/04/08 13:54:23 by tomas             #+#    #+#             */
+/*   Updated: 2024/06/05 16:27:39 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <errno.h>
-#include <limits.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	void	*ptr;
+	size_t	i;
 
-	if (nmemb != 0 && size > __SIZE_MAX__ / nmemb)
-		return (NULL);
-	if (nmemb == 0 || size == 0)
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (i < n && s1[i])
 	{
-		nmemb = 1;
-		size = 1;
+		if ((unsigned char)s1[i] != (unsigned char)s2[i] || i == n - 1)
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		else
+			i++;
 	}
-	ptr = malloc(nmemb * size);
-	if (ptr)
-		ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
+
+// int main(void)
+// {
+// 	printf("%d\n",ft_strncmp("test\200", "test\0", 1));
+// 	printf("%d\n",strncmp("test\200", "test\0", 1));
+// }

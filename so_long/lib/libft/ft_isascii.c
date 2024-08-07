@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 16:02:13 by tomas             #+#    #+#             */
-/*   Updated: 2024/06/07 16:58:59 by tkonecny         ###   ########.fr       */
+/*   Created: 2024/03/31 16:39:50 by tomas             #+#    #+#             */
+/*   Updated: 2024/04/03 19:09:20 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <aio.h>
-#include <stdio.h>
-#include <unistd.h>
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_isascii(int c)
 {
-	ssize_t	result;
-
-	result = write(fd, &c, 1);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }

@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 17:23:45 by tomas             #+#    #+#             */
-/*   Updated: 2024/06/05 14:42:54 by tkonecny         ###   ########.fr       */
+/*   Created: 2024/04/08 16:47:23 by tomas             #+#    #+#             */
+/*   Updated: 2024/06/05 14:42:39 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <errno.h>
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <unistd.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_atoi(const char *nptr)
 {
-	void	*ptr;
+	int	sign;
+	int	n;
 
-	if (nmemb != 0 && size > __SIZE_MAX__ / nmemb)
-		return (NULL);
-	if (nmemb == 0 || size == 0)
+	sign = 1;
+	n = 0;
+	while (((*nptr >= 9 && *nptr <= 13) || *nptr == ' ') && *nptr)
+		nptr++;
+	if (*nptr == '-')
 	{
-		nmemb = 1;
-		size = 1;
+		sign *= -1;
+		nptr++;
 	}
-	ptr = malloc(nmemb * size);
-	if (ptr)
-		ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	else if (*nptr == '+')
+		nptr++;
+	while ((*nptr >= '0') && (*nptr <= '9'))
+	{
+		n = n * 10 + (*nptr - '0');
+		nptr++;
+	}
+	return (n * sign);
 }

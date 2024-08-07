@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 16:02:13 by tomas             #+#    #+#             */
-/*   Updated: 2024/06/07 16:58:59 by tkonecny         ###   ########.fr       */
+/*   Created: 2024/03/31 13:54:15 by tomas             #+#    #+#             */
+/*   Updated: 2024/04/03 19:09:17 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <aio.h>
-#include <stdio.h>
-#include <unistd.h>
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_isalpha(int c)
 {
-	ssize_t	result;
+	int	result;
 
-	result = write(fd, &c, 1);
+	result = 0;
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	{
+		result = 1;
+	}
+	return (result);
 }

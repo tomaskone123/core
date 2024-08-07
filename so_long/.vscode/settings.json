@@ -1,3 +1,4 @@
 {
-	"cmake.sourceDirectory": "/nfs/homes/tkonecny/core/so_long/lib/MLX42"
+	"cmake.sourceDirectory": "/nfs/homes/tkonecny/core/so_long/lib/MLX42",
+	"cmake.configureOnOpen": true
 }

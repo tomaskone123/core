@@ -1,35 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 17:23:45 by tomas             #+#    #+#             */
-/*   Updated: 2024/06/05 14:42:54 by tkonecny         ###   ########.fr       */
+/*   Created: 2024/04/10 16:11:55 by tomas             #+#    #+#             */
+/*   Updated: 2024/06/06 14:55:04 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <errno.h>
-#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strdup(const char *s)
 {
-	void	*ptr;
+	char	*new;
+	char	*cnew;
 
-	if (nmemb != 0 && size > __SIZE_MAX__ / nmemb)
+	new = malloc((ft_strlen(s) + 1) * (sizeof(char)));
+	if (new == NULL)
 		return (NULL);
-	if (nmemb == 0 || size == 0)
+	cnew = new;
+	while (*s)
 	{
-		nmemb = 1;
-		size = 1;
+		*new = *s;
+		new ++;
+		s++;
 	}
-	ptr = malloc(nmemb * size);
-	if (ptr)
-		ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	*new = '\0';
+	return (cnew);
 }
+
+// int main(void)
+// {
+// 	const char *s = "Hello world";
+// 	char *d = ft_strdup(s);
+
+// 	printf("%s\n", d);
+// 	return (0);
+// }
