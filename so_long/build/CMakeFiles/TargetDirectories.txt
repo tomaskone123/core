@@ -1,0 +1,7 @@
+/nfs/homes/tkonecny/core/so_long/build/CMakeFiles/mlx42.dir
+/nfs/homes/tkonecny/core/so_long/build/CMakeFiles/edit_cache.dir
+/nfs/homes/tkonecny/core/so_long/build/CMakeFiles/rebuild_cache.dir
+/nfs/homes/tkonecny/core/so_long/build/CMakeFiles/list_install_components.dir
+/nfs/homes/tkonecny/core/so_long/build/CMakeFiles/install.dir
+/nfs/homes/tkonecny/core/so_long/build/CMakeFiles/install/local.dir
+/nfs/homes/tkonecny/core/so_long/build/CMakeFiles/install/strip.dir
