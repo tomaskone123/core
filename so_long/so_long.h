@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/07 16:30:59 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/08 13:28:54 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@
 
 # define SQUARE_SIZE 100
 
+typedef struct s_connections
+{
+	mlx_t	mlxptr;
+	char	*maparg;
+}	t_con;
 
+void	argument_check(char* argv[], int argc);
 
 #endif
