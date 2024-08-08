@@ -6,34 +6,48 @@
 /*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/08 13:28:42 by tomas            ###   ########.fr       */
+/*   Updated: 2024/08/08 16:15:36 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int		ber_check(char* argv)
+int		ber_check(char* argv, t_con* prg)
 {
 	int end;
 
 	end = ft_strlen(argv) - 4;
-	return(ft_strncmp(argv + end, ".ber", 4));
+	if (ft_strncmp(argv + end, ".ber", 4) == 0)
+	{
+		prg->maparg = argv;
+		return(0);
+	}
+	return (1);
 }
 
-void	argument_check(char* argv[], int argc)
+t_map get_map_values(char	*map_file)
 {
-	if (argc > 2)
+	t_map		map1;
+	int			fd;
+	char		*layout;
+	char		*line;
+
+	fd = open(map_file, O_RDONLY);
+	layout = ft_strdup("");
+	line = get_next_line(fd);
+	while (line != NULL)
 	{
-		ft_printf("only fist argument is going to be used");
+		layout = ft_strjoingnl(layout, line);
+		free(line);
+		line = get_next_line(fd);
+		map1.h++;
 	}
-	if (argc == 1)
-	{
-		ft_printf("Not enough arguments!");
-		exit(0);
-	}
-	if (ber_check(argv[1]) != 0)
-	{
-		ft_printf("File format is not .ber");
-		exit(0);
-	}
+	map1.layout = ft_split(layout, '\n');
+	map1.testlayout = ft_split(layout, '\n');
+	if (map1.layout[0])
+		map1.w = ft_strlen(map1.layout[0]);
+	free(layout);
+	free(line);
+	return (map1);
+
 }

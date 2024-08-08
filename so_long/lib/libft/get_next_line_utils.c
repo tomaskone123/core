@@ -3,42 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 18:47:03 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/07 16:55:44 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:11:11 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
-{
-	char	cc;
-
-	cc = c;
-	if (!s)
-		return (0);
-	if (cc == '\0')
-		return ((char *)s + ft_strlen(s));
-	while (*s)
-	{
-		if (cc == *s)
-			return ((char *)s);
-		s++;
-	}
-	return (NULL);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
 
 char	*ft_strjoingnl(char *left_str, char *buff)
 {
