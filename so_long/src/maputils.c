@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   maputils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/08 21:27:30 by tomas            ###   ########.fr       */
+/*   Updated: 2024/08/12 15:34:51 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int		ber_check(char* argv, t_con* prg)
 	return (1);
 }
 
-// t_map get_map_values(char	*map_file)
-// {
-// 	t_map		map1;
-// 	int			fd;
-// }
+t_map get_map_values(char	*map_file)
+{
+	t_map		map1;
+	int			fd;
+}

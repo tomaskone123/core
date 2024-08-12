@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/12 15:01:15 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/12 15:34:34 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int32_t	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 	argument_check(argv, argc, &prg);
-	// prg.map = get_map_values(prg.maparg);
-	// ft_printf("%s", prg.map.h);
+	prg.map = get_map_values(prg.maparg);
+	ft_printf("%s", prg.map.h);
 	mlx_key_hook(prg.mlxptr, keypresshandle, prg.mlxptr);
 	mlx_loop(prg.mlxptr);
 	mlx_terminate(prg.mlxptr);
