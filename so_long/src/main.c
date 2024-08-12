@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/12 14:57:11 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/12 15:01:15 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ void	keypresshandle(mlx_key_data_t keydata, void *param)
 
 	// initialize_keys(keys, keydata);
 	prg = (t_con *)param;
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+		mlx_close_window(prg->mlxptr);
 	if (initialize_keys(keys, keydata) && keydata.action == MLX_RELEASE)
 	{
-		
-		ft_printf("hello world\n");
+		(*prg).map.mov++;
+		ft_printf("number of moves: %d\n", (*prg).map.mov);
 	}
 }
 
@@ -49,7 +51,7 @@ int32_t	main(int argc, char *argv[])
 {
 	t_con	prg;
 
-	prg.mlxptr = mlx_init(WIDTH, HEIGHT, "MLX42", true);
+	prg.mlxptr = mlx_init(WIDTH, HEIGHT, "MLX42", false);
 	if (!prg.mlxptr)
 	{
 		puts(mlx_strerror(mlx_errno));
