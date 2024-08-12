@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 18:47:06 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/07 13:48:12 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/12 19:10:42 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,27 +105,27 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// int	main(void)
-// {
-// 	int		fd;
-// 	char	*ch;
+int	main(void)
+{
+	int		fd;
+	char	*ch;
 
-// 	fd = open("/nfs/homes/tkonecny/core/get_next_line/my/test.txt",
-// 			O_RDONLY | O_RDWR);
-// 	ch = get_next_line(fd);
-// 	printf("%s", ch);
-// 	ch = get_next_line(fd);
-// 	printf("%s", ch);
-// 	ch = get_next_line(fd);
-// 	printf("%s", ch);
-// 	ch = get_next_line(fd);
-// 	printf("%s", ch);
-// 	ch = get_next_line(fd);
-// 	printf("%s", ch);
-// 	ch = get_next_line(fd);
-// 	printf("%s", ch);
-// 	ch = get_next_line(fd);
-// 	printf("%s", ch);
-// 	ch = get_next_line(fd);
-// 	printf("%s", ch);
-// }
+	fd = open("../so_long/map/map1.ber",
+			O_RDONLY);
+	ch = get_next_line(fd);
+	printf("%s", ch);
+	ch = get_next_line(fd);
+	printf("%s", ch);
+	ch = get_next_line(fd);
+	printf("%s", ch);
+	ch = get_next_line(fd);
+	printf("%s", ch);
+	ch = get_next_line(fd);
+	printf("%s", ch);
+	ch = get_next_line(fd);
+	printf("%s", ch);
+	ch = get_next_line(fd);
+	printf("%s", ch);
+	ch = get_next_line(fd);
+	printf("%s", ch);
+}

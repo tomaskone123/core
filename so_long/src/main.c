@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/12 15:34:34 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/12 19:16:15 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,11 @@ void	keypresshandle(mlx_key_data_t keydata, void *param)
 	// initialize_keys(keys, keydata);
 	prg = (t_con *)param;
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+	{
 		mlx_close_window(prg->mlxptr);
+		free(prg->mlxptr);
+		exit(0);
+	}
 	if (initialize_keys(keys, keydata) && keydata.action == MLX_RELEASE)
 	{
 		(*prg).map.mov++;
@@ -59,7 +63,7 @@ int32_t	main(int argc, char *argv[])
 	}
 	argument_check(argv, argc, &prg);
 	prg.map = get_map_values(prg.maparg);
-	ft_printf("%s", prg.map.h);
+	// ft_printf("%s", prg.map.h);
 	mlx_key_hook(prg.mlxptr, keypresshandle, prg.mlxptr);
 	mlx_loop(prg.mlxptr);
 	mlx_terminate(prg.mlxptr);

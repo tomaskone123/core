@@ -6,13 +6,43 @@
 /*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 18:47:03 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/08 16:11:11 by tomas            ###   ########.fr       */
+/*   Updated: 2024/08/12 19:25:45 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoingnl(char *left_str, char *buff)
+
+char	*ft_strchr_gnl(const char *s, int c)
+{
+	char	cc;
+
+	cc = c;
+	if (!s)
+		return (0);
+	if (cc == '\0')
+		return ((char *)s + ft_strlen(s));
+	while (*s)
+	{
+		if (cc == *s)
+			return ((char *)s);
+		s++;
+	}
+	return (NULL);
+}
+
+size_t	ft_strlen_gnl(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+
+char	*ft_strjoin_gnl(char *left_str, char *buff)
 {
 	size_t	i;
 	size_t	j;
@@ -27,7 +57,7 @@ char	*ft_strjoingnl(char *left_str, char *buff)
 		return (NULL);
 	str = malloc(sizeof(char) * ((ft_strlen(left_str) + ft_strlen(buff)) + 1));
 	if (str == NULL)
-		return (NULL);
+		return (NULL);;
 	i = -1;
 	j = 0;
 	if (left_str)
