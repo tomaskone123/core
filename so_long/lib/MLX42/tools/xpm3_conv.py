@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    xpm3_conv.py                                       :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/09 21:04:31 by pvan-dij          #+#    #+#              #
-#    Updated: 2024/07/22 17:38:15 by tkonecny         ###   ########.fr        #
+#                                                         ::::::::             #
+#    xpm3_conv.py                                       :+:    :+:             #
+#                                                      +:+                     #
+#    By: pvan-dij <pvan-dij@student.codam.nl>         +#+                      #
+#                                                    +#+                       #
+#    Created: 2022/02/09 21:04:31 by pvan-dij      #+#    #+#                  #
+#    Updated: 2022/02/23 16:48:19 by lde-la-h      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -712,6 +712,59 @@ colours = {
 	"grey78":"c7c7c7",
 	"gray79":"c9c9c9",
 	"grey79":"c9c9c9",
+	"gray80":"cccccc",
+	"grey80":"cccccc",
+	"gray81":"cfcfcf",
+	"grey81":"cfcfcf",
+	"gray82":"d1d1d1",
+	"grey82":"d1d1d1",
+	"gray83":"d4d4d4",
+	"grey83":"d4d4d4",
+	"gray84":"d6d6d6",
+	"grey84":"d6d6d6",
+	"gray85":"d9d9d9",
+	"grey85":"d9d9d9",
+	"gray86":"dbdbdb",
+	"grey86":"dbdbdb",
+	"gray87":"dedede",
+	"grey87":"dedede",
+	"gray88":"e0e0e0",
+	"grey88":"e0e0e0",
+	"gray89":"e3e3e3",
+	"grey89":"e3e3e3",
+	"gray90":"e5e5e5",
+	"grey90":"e5e5e5",
+	"gray91":"e8e8e8",
+	"grey91":"e8e8e8",
+	"gray92":"ebebeb",
+	"grey92":"ebebeb",
+	"gray93":"ededed",
+	"grey93":"ededed",
+	"gray94":"f0f0f0",
+	"grey94":"f0f0f0",
+	"gray95":"f2f2f2",
+	"grey95":"f2f2f2",
+	"gray96":"f5f5f5",
+	"grey96":"f5f5f5",
+	"gray97":"f7f7f7",
+	"grey97":"f7f7f7",
+	"gray98":"fafafa",
+	"grey98":"fafafa",
+	"gray99":"fcfcfc",
+	"grey99":"fcfcfc",
+	"gray100":"ffffff",
+	"grey100":"ffffff",
+	"dark grey":"a9a9a9",
+	"darkgrey":"a9a9a9",
+	"dark gray":"a9a9a9",
+	"darkgray":"a9a9a9",
+	"dark blue":"00008b",
+	"darkblue":"00008b",
+	"dark cyan":"008b8b",
+	"darkcyan":"008b8b",
+	"dark magenta":"8b008b",
+	"darkmagenta":"8b008b",
+	"dark red":"8b0000",
 	"darkred":"8b0000",
 	"light green":"90ee90",
 	"lightgreen":"90ee90",
@@ -746,7 +799,7 @@ def main():
 			repcol = colours[repcol[:-3].lower()]
 			out = out[:cpp+1] + "#" + repcol.upper() + "FF\n"
 			if temp == "none":
-				out = out[:-3] + "00\n"
+				out = out[:-3] + "00\n" 
 		newxpm42.write(out)
 		prev += 1
 	oldxpm = oldxpm[prev + 1:]
