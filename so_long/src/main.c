@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/12 19:16:15 by tomas            ###   ########.fr       */
+/*   Updated: 2024/08/14 13:08:14 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int32_t	main(int argc, char *argv[])
 	}
 	argument_check(argv, argc, &prg);
 	prg.map = get_map_values(prg.maparg);
-	// ft_printf("%s", prg.map.h);
+	ft_printf("%d", prg.map.h);
 	mlx_key_hook(prg.mlxptr, keypresshandle, prg.mlxptr);
 	mlx_loop(prg.mlxptr);
 	mlx_terminate(prg.mlxptr);

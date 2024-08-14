@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   maputils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/12 19:28:00 by tomas            ###   ########.fr       */
+/*   Updated: 2024/08/14 12:54:49 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ t_map get_map_values(char	*map_file)
 	char		*line;
 
 	// ft_printf("%s", map_file);
-	layout = "";
+	map1.h = 0;
+	layout = NULL;
 	fd = open(map_file, O_RDONLY);
 	// ft_printf("%d", fd);
 	line = get_next_line(fd);
@@ -45,8 +46,14 @@ t_map get_map_values(char	*map_file)
 		map1.h++;
 	}
 	map1.layout = ft_split(layout, '\n');
-	// ft_printf("%s\n", map1.layout[1]);
+	int i = 0;
+	while (i != map1.h)
+	{
+		ft_printf("%s\n", map1.layout[i]);
+		i++;
+	}
 	free(layout);
 	free(line);
 	return (map1);
 }
+

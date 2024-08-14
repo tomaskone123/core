@@ -29,3 +29,4 @@ void	argument_check(char* argv[], int argc, t_con* prg)
 		exit(0);
 	}
 }
+
