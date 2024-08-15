@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/14 12:54:49 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:08:10 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_map get_map_values(char	*map_file)
 	int i = 0;
 	while (i != map1.h)
 	{
-		ft_printf("%s\n", map1.layout[i]);
+		// ft_printf("%c\n", map1.layout[4][2]);
 		i++;
 	}
 	free(layout);
