@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/15 16:00:12 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/15 16:34:51 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		ber_check(char* argv, t_con* prg)
 	return (1);
 }
 
+
 t_map get_map_values(char	*map_file)
 {
 	t_map		map1;
@@ -36,6 +37,11 @@ t_map get_map_values(char	*map_file)
 	map1.w = 0;
 	layout = NULL;
 	fd = open(map_file, O_RDONLY);
+	if (fd == -1)
+	{
+		ft_printf("failed to load file\n");
+		exit(EXIT_FAILURE);
+	}
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
@@ -44,6 +50,7 @@ t_map get_map_values(char	*map_file)
 		line = get_next_line(fd);
 		map1.h++;
 	}
+	close(fd);
 	map1.layout = ft_split(layout, '\n');
 	map1.w = ft_strlen(map1.layout[0]);
 	free(layout);
