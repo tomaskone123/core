@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/15 15:08:10 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:31:12 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@ t_map get_map_values(char	*map_file)
 	char		*layout;
 	char		*line;
 
-	// ft_printf("%s", map_file);
 	map1.h = 0;
+	map1.w = 0;
 	layout = NULL;
 	fd = open(map_file, O_RDONLY);
-	// ft_printf("%d", fd);
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
@@ -46,12 +45,7 @@ t_map get_map_values(char	*map_file)
 		map1.h++;
 	}
 	map1.layout = ft_split(layout, '\n');
-	int i = 0;
-	while (i != map1.h)
-	{
-		// ft_printf("%c\n", map1.layout[4][2]);
-		i++;
-	}
+	map1.w = ft_strlen(map1.layout[0]);
 	free(layout);
 	free(line);
 	return (map1);

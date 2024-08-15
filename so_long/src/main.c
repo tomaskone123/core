@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/15 15:08:39 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:29:47 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int32_t	main(int argc, char *argv[])
 	}
 	argument_check(argv, argc, &prg);
 	prg.map = get_map_values(prg.maparg);
-	ft_printf("%c\n", prg.map.layout[4][2]);
+	ft_printf("map width: %d\nmap height: %d\n", prg.map.w, prg.map.h);
 	mlx_key_hook(prg.mlxptr, keypresshandle, prg.mlxptr);
 	mlx_loop(prg.mlxptr);
 	mlx_terminate(prg.mlxptr);
