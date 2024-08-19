@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/15 16:34:51 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/19 16:08:05 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_map get_map_values(char	*map_file)
 	map1.h = 0;
 	map1.w = 0;
 	layout = NULL;
+	map1.mov = 0;
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
 	{
