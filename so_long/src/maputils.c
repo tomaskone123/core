@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/19 16:08:05 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/19 16:43:05 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,17 @@ int		ber_check(char* argv, t_con* prg)
 
 t_map get_map_values(char	*map_file)
 {
-	t_map		map1;
+	t_map		*map1;
 	int			fd;
 	char		*layout;
 	char		*line;
-
-	map1.h = 0;
-	map1.w = 0;
+	
 	layout = NULL;
-	map1.mov = 0;
+	map1 = (t_map *)ft_calloc(1, sizeof(t_map));
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
 	{
-		ft_printf("failed to load file\n");
+		ft_printf("Failed to load file\n");
 		exit(EXIT_FAILURE);
 	}
 	line = get_next_line(fd);
@@ -49,13 +47,13 @@ t_map get_map_values(char	*map_file)
 		layout = ft_strjoin_gnl(layout, line);
 		free(line);
 		line = get_next_line(fd);
-		map1.h++;
+		map1->h++;
 	}
 	close(fd);
-	map1.layout = ft_split(layout, '\n');
-	map1.w = ft_strlen(map1.layout[0]);
+	map1->layout = ft_split(layout, '\n');
+	map1->w = ft_strlen(map1->layout[0]);
 	free(layout);
 	free(line);
-	return (map1);
+	return (*map1);
 }
 
