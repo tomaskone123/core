@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:48:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/20 16:09:46 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/20 17:19:02 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ int	ber_check(char *argv, t_con *prg)
 		return (0);
 	}
 	return (1);
+}
+void	fdfail(void)
+{
+	ft_printf("Failed to load given file\n");
+	return (exit(EXIT_FAILURE));
 }
 
 void	argument_check(char *argv[], int argc, t_con *prg)

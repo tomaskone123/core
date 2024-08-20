@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/20 16:52:57 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/20 17:19:12 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_connections
 	char	*maparg;
 }			t_con;
 
+void		fdfail(void);
 void		argument_check(char *argv[], int argc, t_con *prg);
 int			ber_check(char *argv, t_con *prg);
 t_map		get_map_values(char *map_file);

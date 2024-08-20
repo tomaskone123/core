@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/20 16:13:15 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/20 17:28:14 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	keypresshandle(mlx_key_data_t keydata, void *param)
 		free(prg->mlxptr);
 		exit(0);
 	}
-	if (initialize_keys(keys, keydata) && keydata.action == MLX_RELEASE)
+	if (initialize_keys(keys, keydata) && keydata.action == MLX_PRESS)
 	{
 		(*prg).map.mov++;
 		ft_printf("Number of moves: %d\n", (*prg).map.mov);
