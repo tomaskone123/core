@@ -6,26 +6,17 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/20 15:57:10 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/20 16:09:56 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	ber_check(char *argv, t_con *prg)
+void	fdfail(void)
 {
-	int	end;
-
-	end = ft_strlen(argv) - 4;
-	if (ft_strncmp(argv + end, ".ber", 4) == 0)
-	{
-		prg->maparg = argv;
-		return (0);
-	}
-	return (1);
+	ft_printf("Failed to load given file\n");
+	return (exit(EXIT_FAILURE));
 }
-
-
 
 t_map	get_map_values(char *map_file)
 {
@@ -38,10 +29,7 @@ t_map	get_map_values(char *map_file)
 	map1 = (t_map *)ft_calloc(1, sizeof(t_map));
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
-	{
-		ft_printf("Failed to load file\n");
-		exit(EXIT_FAILURE);
-	}
+		fdfail();
 	line = get_next_line(fd);
 	while (line)
 	{

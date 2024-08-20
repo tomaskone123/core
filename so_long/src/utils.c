@@ -6,11 +6,24 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:48:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/20 15:49:14 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/20 16:09:46 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+int	ber_check(char *argv, t_con *prg)
+{
+	int	end;
+
+	end = ft_strlen(argv) - 4;
+	if (ft_strncmp(argv + end, ".ber", 4) == 0)
+	{
+		prg->maparg = argv;
+		return (0);
+	}
+	return (1);
+}
 
 void	argument_check(char *argv[], int argc, t_con *prg)
 {
