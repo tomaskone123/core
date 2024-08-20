@@ -6,15 +6,15 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/19 16:40:56 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:48:48 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int initialize_keys(int *keys, mlx_key_data_t keydata)
+int	initialize_keys(int *keys, mlx_key_data_t keydata)
 {
-	int i;
+	int	i;
 
 	keys[0] = MLX_KEY_W;
 	keys[1] = MLX_KEY_A;
@@ -31,14 +31,15 @@ int initialize_keys(int *keys, mlx_key_data_t keydata)
 	return (0);
 }
 
-void keypresshandle(mlx_key_data_t keydata, void *param)
+void	keypresshandle(mlx_key_data_t keydata, void *param)
 {
-	t_con *prg;
-	int keys[5];
+	t_con	*prg;
+	int		keys[5];
 
 	initialize_keys(keys, keydata);
 	prg = (t_con *)param;
-	if (((keydata.key == MLX_KEY_ESCAPE) || keydata.key == MLX_KEY_Q) && keydata.action == MLX_PRESS)
+	if (((keydata.key == MLX_KEY_ESCAPE) || keydata.key == MLX_KEY_Q)
+		&& keydata.action == MLX_PRESS)
 	{
 		ft_printf("Exiting program\n");
 		mlx_close_window(prg->mlxptr);
@@ -52,11 +53,11 @@ void keypresshandle(mlx_key_data_t keydata, void *param)
 	}
 }
 
-int32_t main(int argc, char *argv[])
+int32_t	main(int argc, char *argv[])
 {
-	t_con *prg;
+	t_con	*prg;
 
-	prg = (t_con*)ft_calloc(1, sizeof(t_con));
+	prg = (t_con *)ft_calloc(1, sizeof(t_con));
 	prg->mlxptr = mlx_init(WIDTH, HEIGHT, "So_Long", false);
 	if (!prg->mlxptr)
 	{

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 18:47:03 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/12 19:25:45 by tomas            ###   ########.fr       */
+/*   Updated: 2024/08/20 15:53:00 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 char	*ft_strchr_gnl(const char *s, int c)
 {
@@ -41,7 +40,6 @@ size_t	ft_strlen_gnl(const char *s)
 	return (i);
 }
 
-
 char	*ft_strjoin_gnl(char *left_str, char *buff)
 {
 	size_t	i;
@@ -57,7 +55,7 @@ char	*ft_strjoin_gnl(char *left_str, char *buff)
 		return (NULL);
 	str = malloc(sizeof(char) * ((ft_strlen(left_str) + ft_strlen(buff)) + 1));
 	if (str == NULL)
-		return (NULL);;
+		return (NULL);
 	i = -1;
 	j = 0;
 	if (left_str)
