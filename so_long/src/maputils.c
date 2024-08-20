@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/20 16:09:56 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/20 16:55:40 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,21 @@ void	fdfail(void)
 {
 	ft_printf("Failed to load given file\n");
 	return (exit(EXIT_FAILURE));
+}
+
+int	check_player(char** layout, t_map map)
+{
+
+}
+
+int	check_map_values(char** layout, t_map map)
+{
+	int	player_count;
+
+	player_count = 0;
+	if (check_player(layout, map) != 1)
+		return (0);
+
 }
 
 t_map	get_map_values(char *map_file)
@@ -42,5 +57,7 @@ t_map	get_map_values(char *map_file)
 	map1->layout = ft_split(layout, '\n');
 	map1->w = ft_strlen(map1->layout[0]);
 	free(layout);
+	if (!check_map_values(map1->layout, *map1))
+		exit(EXIT_FAILURE);
 	return (*map1);
 }

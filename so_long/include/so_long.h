@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/20 15:49:42 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/20 16:52:57 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_mapvalues
 	int		h;
 	int		w;
 	int		mov;
+	int		i;
+	int		j;
 }			t_map;
 
 typedef struct s_connections
