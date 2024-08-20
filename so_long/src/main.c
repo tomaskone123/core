@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/20 17:28:14 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/20 18:05:37 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int32_t	main(int argc, char *argv[])
 	t_con	*prg;
 
 	prg = (t_con *)ft_calloc(1, sizeof(t_con));
+	if (!prg)
+		return (EXIT_FAILURE);
 	prg->mlxptr = mlx_init(WIDTH, HEIGHT, "So_Long", false);
 	if (!prg->mlxptr)
 	{

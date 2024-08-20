@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/20 17:39:06 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/20 18:05:24 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ t_map	get_map_values(char *map_file)
 	free(layout);
 	if (!check_map_values(map1->layout, *map1))
 	{
+		free(map1->layout);
 		free(map1);
 		exit(EXIT_FAILURE);
 	}
