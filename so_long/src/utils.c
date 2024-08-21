@@ -6,11 +6,18 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:48:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/20 17:19:02 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/21 13:12:06 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+void	so_long_exit(t_con *prg)
+{
+	mlx_terminate(prg->mlxptr);
+	free_layout(prg->map.layout);
+	free(prg);
+}
 
 int	ber_check(char *argv, t_con *prg)
 {
@@ -24,6 +31,20 @@ int	ber_check(char *argv, t_con *prg)
 	}
 	return (1);
 }
+
+void	free_layout(char **layout)
+{
+	int i;
+
+	i = 0;
+	while (layout[i])
+	{
+		free(layout[i]);
+		i++;
+	}
+	free(layout);
+}
+
 void	fdfail(void)
 {
 	ft_printf("Failed to load given file\n");

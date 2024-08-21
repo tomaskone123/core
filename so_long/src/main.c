@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/20 18:05:37 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/21 13:09:21 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	keypresshandle(mlx_key_data_t keydata, void *param)
 		ft_printf("Exiting program\n");
 		mlx_close_window(prg->mlxptr);
 		free(prg->mlxptr);
+		free(prg);
 		exit(0);
 	}
 	if (initialize_keys(keys, keydata) && keydata.action == MLX_PRESS)
@@ -60,17 +61,17 @@ int32_t	main(int argc, char *argv[])
 	prg = (t_con *)ft_calloc(1, sizeof(t_con));
 	if (!prg)
 		return (EXIT_FAILURE);
+	argument_check(argv, argc, prg);
+	prg->map = get_map_values(prg->maparg);
+	ft_printf("map width: %d\nmap height: %d\n", prg->map.w, prg->map.h);
 	prg->mlxptr = mlx_init(WIDTH, HEIGHT, "So_Long", false);
 	if (!prg->mlxptr)
 	{
 		puts(mlx_strerror(mlx_errno));
 		return (EXIT_FAILURE);
 	}
-	argument_check(argv, argc, prg);
-	prg->map = get_map_values(prg->maparg);
-	ft_printf("map width: %d\nmap height: %d\n", prg->map.w, prg->map.h);
 	mlx_key_hook(prg->mlxptr, keypresshandle, prg);
 	mlx_loop(prg->mlxptr);
-	mlx_terminate(prg->mlxptr);
+	so_long_exit(prg);
 	return (EXIT_SUCCESS);
 }
