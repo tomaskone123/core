@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/22 16:31:39 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:41:02 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	check_player(char **layout, t_map map)
 {
 	int	player_count;
-	int	exit_count;
 
-	exit_count = 0;
 	player_count = 0;
 	map.j = 0;
 	map.i = 0;
@@ -34,7 +32,7 @@ int	check_player(char **layout, t_map map)
 	}
 	if (player_count != 1)
 	{
-		ft_printf("Error\nNot right emount of Players");
+		ft_printf("Error\nThere is %d Players instead of 1", player_count);
 		return (0);
 	}
 	return (1);
@@ -92,11 +90,15 @@ int	is_rectangle(char **layout, t_map map)
 
 int	check_map_values(char **layout, t_map map)
 {
-	if (!check_player(layout, map))
+	if (!is_valid_character(layout, map))
 		return (0);
 	if (!is_rectangle(layout, map))
 		return (0);
-	if (!is_valid_character(layout, map))
+	if (!check_player(layout, map))
+		return (0);
+	if (!check_exits(layout, map))
+		return (0);
+	if (!check_collectibles(layout, map))
 		return (0);
 	return (1);
 }
