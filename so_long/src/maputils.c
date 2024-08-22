@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:58:45 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/22 17:04:49 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:08:53 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*load_line(char *line, char *layout, t_map *map1)
 	return (layout);
 }
 
-int	check_exits(char** layout, t_map map)
+int	check_exits(char **layout, t_map map)
 {
 	int	exit_count;
 
@@ -50,7 +50,7 @@ int	check_exits(char** layout, t_map map)
 	return (1);
 }
 
-int	check_collectibles(char** layout, t_map map)
+int	check_collectibles(char **layout, t_map map)
 {
 	int	collectibles;
 
@@ -76,10 +76,9 @@ int	check_collectibles(char** layout, t_map map)
 	return (1);
 }
 
-int	check_borders(char** layout, t_map map)
+int	check_borders(char **layout, t_map map)
 {
 	map.i = 0;
-
 	while (map.i < map.w)
 	{
 		if (layout[0][map.i] != '1' || layout[map.h - 1][map.i] != '1')
