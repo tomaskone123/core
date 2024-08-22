@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/22 16:05:02 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:32:13 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void		fdfail(void);
 void		argument_check(char *argv[], int argc, t_con *prg);
 int			ber_check(char *argv, t_con *prg);
 t_map		get_map_values(char *map_file);
-void		free_layout(char **layout, t_map *map);
+void		free_layout(char **layout);
 void		so_long_exit(t_con *prg);
-char*		load_line(char* line, char* layout, t_map *map1);
+char		*load_line(char *line, char *layout, t_map *map1);
 
 #endif

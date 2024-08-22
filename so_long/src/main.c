@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/22 15:43:45 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:23:39 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ int32_t	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	argument_check(argv, argc, prg);
 	prg->map = get_map_values(prg->maparg);
-	ft_printf("map width: %d\nmap height: %d\n", prg->map.w, prg->map.h);
 	prg->mlxptr = mlx_init(WIDTH, HEIGHT, "So_Long", false);
 	if (!prg->mlxptr)
 	{

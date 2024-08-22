@@ -11,6 +11,9 @@ OBJS	:= ${SRCS:.c=.o}
 
 all: libmlx libft $(NAME)
 
+norm:
+	@norminette src include
+
 libft:
 	@make -C $(LIBFT)
 

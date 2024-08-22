@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:48:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/22 15:53:40 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:31:57 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 void	so_long_exit(t_con *prg)
 {
 	mlx_terminate(prg->mlxptr);
-	free_layout(prg->map.layout, &prg->map);
+	free_layout(prg->map.layout);
 	free(prg);
 }
-
-
 
 int	ber_check(char *argv, t_con *prg)
 {
@@ -34,9 +32,9 @@ int	ber_check(char *argv, t_con *prg)
 	return (1);
 }
 
-void	free_layout(char **layout, t_map *map)
+void	free_layout(char **layout)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (layout[i])
@@ -44,7 +42,6 @@ void	free_layout(char **layout, t_map *map)
 		free(layout[i]);
 		i++;
 	}
-	free(map);
 	free(layout);
 }
 
