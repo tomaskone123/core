@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:58:45 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/22 16:42:22 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:04:49 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,32 @@ int	check_collectibles(char** layout, t_map map)
 	{
 		ft_printf("Error\nThere are no collectibles");
 		return (0);
+	}
+	return (1);
+}
+
+int	check_borders(char** layout, t_map map)
+{
+	map.i = 0;
+
+	while (map.i < map.w)
+	{
+		if (layout[0][map.i] != '1' || layout[map.h - 1][map.i] != '1')
+		{
+			ft_printf("Error\nThe map borders are not valid");
+			return (0);
+		}
+		map.i++;
+	}
+	map.i = 0;
+	while (map.i < map.h)
+	{
+		if (layout[map.i][0] != '1' || layout[map.i][map.w - 1] != '1')
+		{
+			ft_printf("Error\nThe map borders are not valid");
+			return (0);
+		}
+		map.i++;
 	}
 	return (1);
 }

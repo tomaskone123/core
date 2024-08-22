@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/22 16:41:02 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:05:14 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ int	check_map_values(char **layout, t_map map)
 	if (!is_valid_character(layout, map))
 		return (0);
 	if (!is_rectangle(layout, map))
+		return (0);
+	if (!check_borders(layout, map))
 		return (0);
 	if (!check_player(layout, map))
 		return (0);

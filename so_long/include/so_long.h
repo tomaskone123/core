@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/22 16:42:40 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:05:04 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ void		so_long_exit(t_con *prg);
 char		*load_line(char *line, char *layout, t_map *map1);
 int			check_exits(char** layout, t_map map);
 int			check_collectibles(char** layout, t_map map);
+int			check_borders(char** layout, t_map map);
 
 #endif
