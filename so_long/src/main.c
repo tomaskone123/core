@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/21 13:09:21 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:43:45 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ void	keypresshandle(mlx_key_data_t keydata, void *param)
 
 	initialize_keys(keys, keydata);
 	prg = (t_con *)param;
-	if (((keydata.key == MLX_KEY_ESCAPE) || keydata.key == MLX_KEY_Q)
-		&& keydata.action == MLX_PRESS)
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
 		ft_printf("Exiting program\n");
 		mlx_close_window(prg->mlxptr);

@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/21 13:10:09 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:05:02 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_mapvalues
 	int		mov;
 	int		i;
 	int		j;
+	int		fd;
 }			t_map;
 
 typedef struct s_connections
@@ -46,7 +47,8 @@ void		fdfail(void);
 void		argument_check(char *argv[], int argc, t_con *prg);
 int			ber_check(char *argv, t_con *prg);
 t_map		get_map_values(char *map_file);
-void		free_layout(char **layout);
+void		free_layout(char **layout, t_map *map);
 void		so_long_exit(t_con *prg);
+char*		load_line(char* line, char* layout, t_map *map1);
 
 #endif
