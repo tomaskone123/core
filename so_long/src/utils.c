@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:48:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/22 16:31:57 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:24:51 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	so_long_exit(t_con *prg)
 {
 	mlx_terminate(prg->mlxptr);
 	free_layout(prg->map.layout);
+	free_layout(prg->map.testlayout);
 	free(prg);
 }
 

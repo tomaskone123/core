@@ -1,12 +1,12 @@
-NAME	:= Game
-CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
-LIBMLX	:= ./lib/MLX42
-LIBFT	:= ./lib/libft
+NAME		:= Game
+CFLAGS		:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
+LIBMLX		:= ./lib/MLX42
+LIBFT		:= ./lib/libft
 
-HEADERS	:= -I ./include -I $(LIBMLX)/include
-LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm $(LIBFT)/libft.a
-SRCS	:= $(shell find ./src -iname "*.c")
-OBJS	:= ${SRCS:.c=.o}
+HEADERS		:= -I ./include -I $(LIBMLX)/include
+LIBS		:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm $(LIBFT)/libft.a
+SRCS		:= $(shell find ./src -iname "*.c")
+OBJS		:= ${SRCS:.c=.o}
 
 
 all: libmlx libft $(NAME)

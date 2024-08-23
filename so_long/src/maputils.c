@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:58:45 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/23 14:44:51 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:49:25 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,9 @@ int	check_borders(char **layout, t_map map)
 
 void	flood_fill(char **layout, int x, int y, t_map *map)
 {
-	if (x < 0 || x >= map->h || y < 0 || y >= map->w
-		|| layout[x][y] == '1' || layout[x][y] == 'V')
-		return;
+	if (x < 0 || x >= map->h || y < 0 || y >= map->w || layout[x][y] == '1'
+		|| layout[x][y] == 'V')
+		return ;
 	if (layout[x][y] == 'C')
 		map->collectibles--;
 	if (layout[x][y] == 'E')
