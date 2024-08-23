@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:48:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/23 15:24:51 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:51:44 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	free_layout(char **layout)
 
 void	fdfail(void)
 {
-	ft_printf("Failed to load given file\n");
+	ft_printf("Error\nFailed to load given file\n");
 	return (exit(EXIT_FAILURE));
 }
 
@@ -60,12 +60,12 @@ void	argument_check(char *argv[], int argc, t_con *prg)
 	}
 	if (argc == 1)
 	{
-		ft_printf("Not enough arguments\n");
+		ft_printf("Error\nNot enough arguments\n");
 		exit(0);
 	}
 	if (ber_check(argv[1], prg) != 0)
 	{
-		ft_printf("File format is not .ber\n");
+		ft_printf("Error\nFile format is not .ber\n");
 		exit(0);
 	}
 }
