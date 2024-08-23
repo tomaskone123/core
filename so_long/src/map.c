@@ -6,33 +6,34 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/22 17:05:14 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/23 14:52:53 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	check_player(char **layout, t_map map)
+int	check_player(char **layout, t_map *map)
 {
-	int	player_count;
-
-	player_count = 0;
-	map.j = 0;
-	map.i = 0;
-	while (layout[map.i])
+	map->j = 0;
+	map->i = 0;
+	while (layout[map->i])
 	{
-		map.j = 0;
-		while (layout[map.i][map.j])
+		map->j = 0;
+		while (layout[map->i][map->j])
 		{
-			if (layout[map.i][map.j] == 'P')
-				player_count++;
-			map.j++;
+			if (layout[map->i][map->j] == 'P')
+			{
+				map->px = map->i;
+				map->py = map->j;
+				map->player_count++;
+			}
+			map->j++;
 		}
-		map.i++;
+		map->i++;
 	}
-	if (player_count != 1)
+	if (map->player_count != 1)
 	{
-		ft_printf("Error\nThere is %d Players instead of 1", player_count);
+		ft_printf("Error\nThere is %d Players instead of 1", map->player_count);
 		return (0);
 	}
 	return (1);
@@ -88,19 +89,21 @@ int	is_rectangle(char **layout, t_map map)
 	return (1);
 }
 
-int	check_map_values(char **layout, t_map map)
+int	check_map_values(char **layout, t_map *map)
 {
-	if (!is_valid_character(layout, map))
+	if (!is_valid_character(layout, *map))
 		return (0);
-	if (!is_rectangle(layout, map))
+	if (!is_rectangle(layout, *map))
 		return (0);
-	if (!check_borders(layout, map))
+	if (!check_borders(layout, *map))
 		return (0);
 	if (!check_player(layout, map))
 		return (0);
 	if (!check_exits(layout, map))
 		return (0);
 	if (!check_collectibles(layout, map))
+		return (0);
+	if (!check_reachability(map->testlayout, map))
 		return (0);
 	return (1);
 }
@@ -121,10 +124,12 @@ t_map	get_map_values(char *map_file)
 	layout = load_line(line, layout, map1);
 	close(map1->fd);
 	map1->layout = ft_split(layout, '\n');
+	map1->testlayout = ft_split(layout, '\n');
 	map1->w = ft_strlen(map1->layout[0]);
 	free(layout);
-	if (!check_map_values(map1->layout, *map1))
+	if (!check_map_values(map1->layout, map1))
 	{
+		free_layout(map1->testlayout);
 		free_layout(map1->layout);
 		free(map1);
 		exit(EXIT_FAILURE);

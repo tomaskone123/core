@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:58:45 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/22 17:08:53 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/23 14:44:51 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,51 +24,45 @@ char	*load_line(char *line, char *layout, t_map *map1)
 	return (layout);
 }
 
-int	check_exits(char **layout, t_map map)
+int	check_exits(char **layout, t_map *map)
 {
-	int	exit_count;
-
-	exit_count = 0;
-	map.j = 0;
-	map.i = 0;
-	while (layout[map.i])
+	map->j = 0;
+	map->i = 0;
+	while (layout[map->i])
 	{
-		map.j = 0;
-		while (layout[map.i][map.j])
+		map->j = 0;
+		while (layout[map->i][map->j])
 		{
-			if (layout[map.i][map.j] == 'E')
-				exit_count++;
-			map.j++;
+			if (layout[map->i][map->j] == 'E')
+				map->exits++;
+			map->j++;
 		}
-		map.i++;
+		map->i++;
 	}
-	if (exit_count != 1)
+	if (map->exits != 1)
 	{
-		ft_printf("Error\nThere is %d exits instead of 1", exit_count);
+		ft_printf("Error\nThere is %d exits instead of 1", map->exits);
 		return (0);
 	}
 	return (1);
 }
 
-int	check_collectibles(char **layout, t_map map)
+int	check_collectibles(char **layout, t_map *map)
 {
-	int	collectibles;
-
-	collectibles = 0;
-	map.j = 0;
-	map.i = 0;
-	while (layout[map.i])
+	map->j = 0;
+	map->i = 0;
+	while (layout[map->i])
 	{
-		map.j = 0;
-		while (layout[map.i][map.j])
+		map->j = 0;
+		while (layout[map->i][map->j])
 		{
-			if (layout[map.i][map.j] == 'C')
-				collectibles++;
-			map.j++;
+			if (layout[map->i][map->j] == 'C')
+				map->collectibles++;
+			map->j++;
 		}
-		map.i++;
+		map->i++;
 	}
-	if (collectibles < 1)
+	if (map->collectibles < 1)
 	{
 		ft_printf("Error\nThere are no collectibles");
 		return (0);
@@ -99,4 +93,20 @@ int	check_borders(char **layout, t_map map)
 		map.i++;
 	}
 	return (1);
+}
+
+void	flood_fill(char **layout, int x, int y, t_map *map)
+{
+	if (x < 0 || x >= map->h || y < 0 || y >= map->w
+		|| layout[x][y] == '1' || layout[x][y] == 'V')
+		return;
+	if (layout[x][y] == 'C')
+		map->collectibles--;
+	if (layout[x][y] == 'E')
+		map->exits--;
+	layout[x][y] = 'V';
+	flood_fill(layout, x + 1, y, map);
+	flood_fill(layout, x - 1, y, map);
+	flood_fill(layout, x, y + 1, map);
+	flood_fill(layout, x, y - 1, map);
 }
