@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/24 20:33:59 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/24 20:52:41 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,5 @@ int			check_borders(char **layout, t_map map);
 void		flood_fill(char **layout, int x, int y, t_map *map);
 int			check_reachability(char **layout, t_map *map);
 int			check_size(t_map *map);
-
 
 #endif

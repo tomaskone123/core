@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/08/24 20:34:07 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/24 20:52:29 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,31 +112,29 @@ int	check_map_values(char **layout, t_map *map)
 
 t_map	get_map_values(char *map_file)
 {
-	t_map	*map1;
+	t_map	*map;
 	char	*layout;
-	char	*line;
 	t_map	result;
 
 	layout = NULL;
-	map1 = (t_map *)ft_calloc(1, sizeof(t_map));
-	map1->fd = open(map_file, O_RDONLY);
-	if (map1->fd == -1)
+	map = ft_calloc(1, sizeof(t_map));
+	map->fd = open(map_file, O_RDONLY);
+	if (map->fd == -1)
 		fdfail();
-	line = get_next_line(map1->fd);
-	layout = load_line(line, layout, map1);
-	close(map1->fd);
-	map1->layout = ft_split(layout, '\n');
-	map1->testlayout = ft_split(layout, '\n');
-	map1->w = ft_strlen(map1->layout[0]);
+	layout = load_line(get_next_line(map->fd), layout, map);
+	close(map->fd);
+	map->layout = ft_split(layout, '\n');
+	map->testlayout = ft_split(layout, '\n');
+	map->w = ft_strlen(map->layout[0]);
 	free(layout);
-	if (!check_map_values(map1->layout, map1))
+	if (!check_map_values(map->layout, map))
 	{
-		free_layout(map1->testlayout);
-		free_layout(map1->layout);
-		free(map1);
+		free_layout(map->testlayout);
+		free_layout(map->layout);
+		free(map);
 		exit(EXIT_FAILURE);
 	}
-	result = *map1;
-	free(map1);
+	result = *map;
+	free(map);
 	return (result);
 }
