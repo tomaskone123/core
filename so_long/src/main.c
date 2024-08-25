@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/23 13:33:38 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/25 13:05:15 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int32_t	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	argument_check(argv, argc, prg);
 	prg->map = get_map_values(prg->maparg);
-	prg->mlxptr = mlx_init(WIDTH, HEIGHT, "So_Long", false);
+	prg->mlxptr = mlx_init(prg->map.w, prg->map.h, "So_Long", false);
 	if (!prg->mlxptr)
 	{
 		puts(mlx_strerror(mlx_errno));
