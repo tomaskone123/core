@@ -6,12 +6,12 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/24 20:52:41 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/25 13:00:45 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG
-# define SO_LONG
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 # include "../lib/libft/libft.h"
