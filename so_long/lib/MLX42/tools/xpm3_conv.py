@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
-#    xpm3_conv.py                                       :+:    :+:             #
-#                                                      +:+                     #
-#    By: pvan-dij <pvan-dij@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
-#    Created: 2022/02/09 21:04:31 by pvan-dij      #+#    #+#                  #
-#    Updated: 2022/02/23 16:48:19 by lde-la-h      ########   odam.nl          #
+#                                                         :::      ::::::::    #
+#    xpm3_conv.py                                       :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/02/09 21:04:31 by pvan-dij          #+#    #+#              #
+#    Updated: 2024/09/02 15:10:22 by tkonecny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -799,7 +799,7 @@ def main():
 			repcol = colours[repcol[:-3].lower()]
 			out = out[:cpp+1] + "#" + repcol.upper() + "FF\n"
 			if temp == "none":
-				out = out[:-3] + "00\n" 
+				out = out[:-3] + "00\n"
 		newxpm42.write(out)
 		prev += 1
 	oldxpm = oldxpm[prev + 1:]

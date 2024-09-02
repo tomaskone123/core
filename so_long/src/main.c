@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/25 13:05:15 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/02 15:27:17 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int32_t	main(int argc, char *argv[])
 		puts(mlx_strerror(mlx_errno));
 		return (EXIT_FAILURE);
 	}
+	load_images(prg);
+	draw_map(prg);
 	mlx_key_hook(prg->mlxptr, keypresshandle, prg);
 	mlx_loop(prg->mlxptr);
 	so_long_exit(prg);

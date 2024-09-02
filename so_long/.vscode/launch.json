@@ -7,7 +7,7 @@
 		"request": "launch",
 		"program": "${workspaceFolder}/Game",
 		"args": [
-			"map/map1.ber"
+			"map/map.ber"
 		],
 		"stopAtEntry": false,
 		"cwd": "${workspaceFolder}",
