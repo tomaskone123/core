@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 12:30:30 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/02 16:30:03 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:37:47 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,15 @@ void	load_images(t_con *prg)
 	mlx_delete_xpm42(player_xpm);
 	// Additional images like collectible (C), exit (E),
 		// empty space (0) can be loaded similarly
+	xpm_t *door_xpm = mlx_load_xpm42("/nfs/homes/tkonecny/core/so_long/textures/door.xpm42");
+	if (!door_xpm) {
+	    ft_printf("Failed to load player image\n");
+	    mlx_terminate(prg->mlxptr);
+	    exit(EXIT_FAILURE);
+	}
+	prg->images.exit = mlx_texture_to_image(prg->mlxptr,
+			&door_xpm->texture);
+	mlx_delete_xpm42(door_xpm);
 }
 
 void	draw_map(t_con *prg)
@@ -95,9 +104,9 @@ void	draw_map(t_con *prg)
 					* tile_size, i * tile_size);
 			}
 			if (prg->map.layout[i][j] == 'P')
-			{
 				mlx_image_to_window(prg->mlxptr, prg->images.player, j * tile_size, i * tile_size);
-			}
+			if (prg->map.layout[i][j] == 'E')
+				mlx_image_to_window(prg->mlxptr, prg->images.exit, j * tile_size, i * tile_size);
 
 			ft_printf("%c", prg->map.layout[i][j]);
 			j++;
