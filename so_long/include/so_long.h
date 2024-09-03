@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/03 14:17:34 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:22:24 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ int				check_reachability(char **layout, t_map *map);
 int				check_size(t_map *map);
 void			load_images(t_con *prg);
 void			draw_map(t_con *prg);
+char			**initialize_textures(char** textures);
 
 #endif

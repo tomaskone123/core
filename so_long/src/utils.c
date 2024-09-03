@@ -6,11 +6,21 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:48:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/02 12:44:10 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:23:58 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+char	**initialize_textures(char **textures)
+{
+	textures[0] = "/nfs/homes/tkonecny/core/so_long/textures/wall.xpm42";
+	textures[1] = "/nfs/homes/tkonecny/core/so_long/textures/player.xpm42";
+	textures[2] = "/nfs/homes/tkonecny/core/so_long/textures/floor.xpm42";
+	textures[3] = "/nfs/homes/tkonecny/core/so_long/textures/collectible.xpm42";
+	textures[4] = "/nfs/homes/tkonecny/core/so_long/textures/door.xpm42";
+	return (textures);
+}
 
 void	so_long_exit(t_con *prg)
 {
