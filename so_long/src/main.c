@@ -6,38 +6,49 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/02 15:27:17 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:23:14 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	initialize_keys(int *keys, mlx_key_data_t keydata)
-{
-	int	i;
+// int	initialize_keys(int *keys, mlx_key_data_t keydata)
+// {
+// 	int	i;
 
-	keys[0] = MLX_KEY_W;
-	keys[1] = MLX_KEY_A;
-	keys[2] = MLX_KEY_S;
-	keys[3] = MLX_KEY_D;
-	keys[4] = 0;
-	i = 0;
-	while (keys[i] != 0)
-	{
-		if (keys[i] == (int)keydata.key)
-			return (1);
-		i++;
-	}
-	return (0);
-}
+// 	keys[0] = MLX_KEY_W;
+// 	keys[1] = MLX_KEY_A;
+// 	keys[2] = MLX_KEY_S;
+// 	keys[3] = MLX_KEY_D;
+// 	keys[4] = 0;
+// 	i = 0;
+// 	while (keys[i] != 0)
+// 	{
+// 		if (keys[i] == (int)keydata.key)
+// 			return (keys[i]);
+// 		i++;
+// 	}
+// 	return (0);
+// }
 
 void	keypresshandle(mlx_key_data_t keydata, void *param)
 {
 	t_con	*prg;
-	int		keys[5];
 
-	initialize_keys(keys, keydata);
 	prg = (t_con *)param;
+	if (keydata.action == MLX_PRESS)
+	{
+		// Move player based on key press
+		if (keydata.key == MLX_KEY_W) {  // Move up
+			move_player(prg, prg->map.px, prg->map.py - 10);
+		} else if (keydata.key == MLX_KEY_S) {  // Move down
+			move_player(prg, prg->map.px, prg->map.py + 10);
+		} else if (keydata.key == MLX_KEY_A) {  // Move left
+			move_player(prg, prg->map.px - 10, prg->map.py);
+		} else if (keydata.key == MLX_KEY_D) {  // Move right
+			move_player(prg, prg->map.px + 10, prg->map.py);
+		}
+	}
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
 		ft_printf("Exiting program\n");
@@ -45,11 +56,6 @@ void	keypresshandle(mlx_key_data_t keydata, void *param)
 		free(prg->mlxptr);
 		free(prg);
 		exit(0);
-	}
-	if (initialize_keys(keys, keydata) && keydata.action == MLX_PRESS)
-	{
-		(*prg).map.mov++;
-		ft_printf("Number of moves: %d\n", (*prg).map.mov);
 	}
 }
 

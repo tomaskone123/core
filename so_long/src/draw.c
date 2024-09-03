@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 12:30:30 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/03 16:45:18 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:23:46 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,13 @@ void	draw_map(t_con *prg)
 			if (prg->map.layout[prg->map.x_load][prg->map.y_load] == 'C')
 				mlx_image_to_window(prg->mlxptr, prg->images.collectible,
 					prg->map.y_load * TILE_SIZE, prg->map.x_load * TILE_SIZE);
+			// if (prg->map.layout[prg->map.x_load][prg->map.y_load] == 'P')
+			// 	mlx_image_to_window(prg->mlxptr, prg->images.player,
+			// 		prg->map.y_load * TILE_SIZE, prg->map.x_load * TILE_SIZE);
+			// ft_printf("%c", prg->map.layout[prg->map.x_load][prg->map.y_load]);
 			prg->map.y_load++;
 		}
+		ft_printf("\n");
 		prg->map.x_load++;
 	}
 }
