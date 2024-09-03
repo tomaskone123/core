@@ -6,13 +6,11 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 12:30:30 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/03 15:24:37 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/03 16:45:18 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
-
 
 void	load_images(t_con *prg)
 {
@@ -25,21 +23,21 @@ void	load_images(t_con *prg)
 
 	initialize_textures(textures);
 	wall_xpm = mlx_load_xpm42(textures[0]);
-	prg->images.wall = mlx_texture_to_image(prg->mlxptr, &wall_xpm->texture);
-	mlx_delete_xpm42(wall_xpm);
 	player_xpm = mlx_load_xpm42(textures[1]);
+	floor_xpm = mlx_load_xpm42(textures[2]);
+	collectible_xpm = mlx_load_xpm42(textures[3]);
+	door_xpm = mlx_load_xpm42(textures[4]);
+	prg->images.wall = mlx_texture_to_image(prg->mlxptr, &wall_xpm->texture);
 	prg->images.player = mlx_texture_to_image(prg->mlxptr,
 			&player_xpm->texture);
-	mlx_delete_xpm42(player_xpm);
-	door_xpm = mlx_load_xpm42(textures[4]);
-	prg->images.exit = mlx_texture_to_image(prg->mlxptr, &door_xpm->texture);
-	mlx_delete_xpm42(door_xpm);
-	collectible_xpm = mlx_load_xpm42(textures[3]);
+	prg->images.floor = mlx_texture_to_image(prg->mlxptr, &floor_xpm->texture);
 	prg->images.collectible = mlx_texture_to_image(prg->mlxptr,
 			&collectible_xpm->texture);
+	prg->images.exit = mlx_texture_to_image(prg->mlxptr, &door_xpm->texture);
+	mlx_delete_xpm42(player_xpm);
+	mlx_delete_xpm42(door_xpm);
+	mlx_delete_xpm42(wall_xpm);
 	mlx_delete_xpm42(collectible_xpm);
-	floor_xpm = mlx_load_xpm42(textures[2]);
-	prg->images.floor = mlx_texture_to_image(prg->mlxptr, &floor_xpm->texture);
 	mlx_delete_xpm42(floor_xpm);
 }
 
@@ -52,8 +50,8 @@ void	draw_map(t_con *prg)
 		while (prg->map.layout[prg->map.x_load][prg->map.y_load])
 		{
 			if (prg->map.layout[prg->map.x_load][prg->map.y_load] != '1'
-				|| prg->map.layout[prg->map.x_load][prg->map.y_load] != 'E'
-				|| prg->map.layout[prg->map.x_load][prg->map.y_load] != 'C')
+				|| prg->map.layout[prg->map.x_load][prg->map.y_load] != 'C'
+				|| prg->map.layout[prg->map.x_load][prg->map.y_load] != 'P')
 				mlx_image_to_window(prg->mlxptr, prg->images.floor,
 					prg->map.y_load * TILE_SIZE, prg->map.x_load * TILE_SIZE);
 			if (prg->map.layout[prg->map.x_load][prg->map.y_load] == '1')
