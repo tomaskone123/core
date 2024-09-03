@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/02 15:27:11 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:17:34 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define WIDTH 542
 # define HEIGHT 542
 
+# define TILE_SIZE 90
+
 typedef struct s_images
 {
 	mlx_image_t	*player;
@@ -34,6 +36,8 @@ typedef struct s_images
 
 typedef struct s_mapvalues
 {
+	int			x_load;
+	int			y_load;
 	char		**layout;
 	char		**testlayout;
 	int			h;
