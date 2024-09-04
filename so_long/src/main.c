@@ -6,29 +6,20 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/03 17:23:14 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:46:48 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// int	initialize_keys(int *keys, mlx_key_data_t keydata)
+// void	next_frame(void* param)
 // {
-// 	int	i;
-
-// 	keys[0] = MLX_KEY_W;
-// 	keys[1] = MLX_KEY_A;
-// 	keys[2] = MLX_KEY_S;
-// 	keys[3] = MLX_KEY_D;
-// 	keys[4] = 0;
-// 	i = 0;
-// 	while (keys[i] != 0)
+// 	t_con *prg = (t_con *)param;
+// 	draw_map(prg);
+// 	if (prg->map.px == prg->map.ex && prg->map.py == prg->map.ey)
 // 	{
-// 		if (keys[i] == (int)keydata.key)
-// 			return (keys[i]);
-// 		i++;
+// 		ft_printf("You Win !!!!!");
 // 	}
-// 	return (0);
 // }
 
 void	keypresshandle(mlx_key_data_t keydata, void *param)
@@ -38,15 +29,31 @@ void	keypresshandle(mlx_key_data_t keydata, void *param)
 	prg = (t_con *)param;
 	if (keydata.action == MLX_PRESS)
 	{
-		// Move player based on key press
-		if (keydata.key == MLX_KEY_W) {  // Move up
-			move_player(prg, prg->map.px, prg->map.py - 10);
-		} else if (keydata.key == MLX_KEY_S) {  // Move down
-			move_player(prg, prg->map.px, prg->map.py + 10);
-		} else if (keydata.key == MLX_KEY_A) {  // Move left
-			move_player(prg, prg->map.px - 10, prg->map.py);
-		} else if (keydata.key == MLX_KEY_D) {  // Move right
-			move_player(prg, prg->map.px + 10, prg->map.py);
+		if (keydata.key == MLX_KEY_W)
+			move_player(prg, prg->map.px - 1, prg->map.py);
+		if (keydata.key == MLX_KEY_A)
+			move_player(prg, prg->map.px, prg->map.py - 1);
+		if (keydata.key == MLX_KEY_S)
+			move_player(prg, prg->map.px + 1, prg->map.py);
+		if (keydata.key == MLX_KEY_D)
+			move_player(prg, prg->map.px, prg->map.py + 1);
+		draw_map(prg);
+		ft_printf("Number of moves: %d\n", prg->map.mov);
+		int	x;
+		int	y;
+
+		x = 0;
+		y = 0;
+		while (y < 6)
+		{
+			x = 0;
+			while (prg->map.layout[y][x])
+			{
+				ft_printf("%c", prg->map.layout[y][x]);
+				x++;
+			}
+			ft_printf("\n");
+			y++;
 		}
 	}
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
@@ -76,6 +83,7 @@ int32_t	main(int argc, char *argv[])
 	}
 	load_images(prg);
 	draw_map(prg);
+	// mlx_loop_hook(prg->mlxptr, next_frame, prg);
 	mlx_key_hook(prg->mlxptr, keypresshandle, prg);
 	mlx_loop(prg->mlxptr);
 	so_long_exit(prg);

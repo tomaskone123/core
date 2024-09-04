@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:58:45 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/03 13:55:20 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/04 12:22:16 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ int	check_exits(char **layout, t_map *map)
 		while (layout[map->i][map->j])
 		{
 			if (layout[map->i][map->j] == 'E')
+			{
+				map->ex = map->i;
+				map->ey = map->j;
 				map->exits++;
+			}
 			map->j++;
 		}
 		map->i++;
