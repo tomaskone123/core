@@ -6,16 +6,17 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/04 16:33:20 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:41:22 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	next_frame(void* param)
+void	next_frame(void *param)
 {
-	t_con *prg = (t_con *)param;
+	t_con	*prg;
 
+	prg = (t_con *)param;
 	if (prg->map.px == prg->map.ex && prg->map.py == prg->map.ey)
 	{
 		ft_printf("You Win !!!!!");
@@ -38,7 +39,6 @@ void	keypresshandle(mlx_key_data_t keydata, void *param)
 		if (keydata.key == MLX_KEY_D)
 			move_player(prg, prg->map.px, prg->map.py + 1);
 		ft_printf("Number of moves: %d\n", prg->map.mov);
-		draw_layout(prg);
 	}
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
@@ -66,6 +66,7 @@ int32_t	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 	load_images(prg);
+	draw_map(prg);
 	mlx_loop_hook(prg->mlxptr, next_frame, prg);
 	mlx_key_hook(prg->mlxptr, keypresshandle, prg);
 	mlx_loop(prg->mlxptr);

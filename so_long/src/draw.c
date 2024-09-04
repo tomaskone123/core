@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 12:30:30 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/04 16:32:41 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:36:34 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ void	draw_map(t_con *prg)
 		prg->map.y_load = 0;
 		while (prg->map.layout[prg->map.x_load][prg->map.y_load])
 		{
-			if (prg->map.layout[prg->map.x_load][prg->map.y_load] != '1'
-				|| prg->map.layout[prg->map.x_load][prg->map.y_load] != 'P')
+			if (prg->map.layout[prg->map.x_load][prg->map.y_load] != '1')
 				mlx_image_to_window(prg->mlxptr, prg->images.floor,
 					prg->map.y_load * TILE_SIZE, prg->map.x_load * TILE_SIZE);
 			if (prg->map.layout[prg->map.x_load][prg->map.y_load] == '1')

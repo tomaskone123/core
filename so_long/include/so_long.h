@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/04 15:02:28 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:36:07 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int				check_reachability(char **layout, t_map *map);
 int				check_size(t_map *map);
 void			load_images(t_con *prg);
 void			draw_map(t_con *prg);
-char			**initialize_textures(char** textures);
+char			**initialize_textures(char **textures);
 void			move_player(t_con *prg, int new_x, int new_y);
 void			draw_layout(t_con *prg);
 

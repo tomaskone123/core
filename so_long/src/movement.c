@@ -6,12 +6,11 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 16:51:42 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/04 16:33:38 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:38:44 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
 
 void	move_player(t_con *prg, int new_x, int new_y)
 {
@@ -25,7 +24,6 @@ void	move_player(t_con *prg, int new_x, int new_y)
 		prg->map.px = new_x;
 		prg->map.py = new_y;
 		prg->map.mov++;
-		ft_printf("x:%d\ny:%d\n", prg->map.px, prg->map.py);
 		draw_map(prg);
 	}
 }
@@ -59,4 +57,3 @@ char	**initialize_textures(char **textures)
 	textures[4] = "/nfs/homes/tkonecny/core/so_long/textures/door.xpm42";
 	return (textures);
 }
-
