@@ -6,11 +6,12 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 16:51:42 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/04 15:31:14 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:33:38 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
 
 void	move_player(t_con *prg, int new_x, int new_y)
 {
@@ -24,9 +25,8 @@ void	move_player(t_con *prg, int new_x, int new_y)
 		prg->map.px = new_x;
 		prg->map.py = new_y;
 		prg->map.mov++;
-		// mlx_delete_image(prg->mlxptr, prg->images.player);
-		draw_map(prg);
 		ft_printf("x:%d\ny:%d\n", prg->map.px, prg->map.py);
+		draw_map(prg);
 	}
 }
 
@@ -37,7 +37,7 @@ void	draw_layout(t_con *prg)
 
 	x = 0;
 	y = 0;
-	while (y < 6)
+	while (y < prg->map.h)
 	{
 		x = 0;
 		while (prg->map.layout[y][x])
@@ -49,3 +49,14 @@ void	draw_layout(t_con *prg)
 		y++;
 	}
 }
+
+char	**initialize_textures(char **textures)
+{
+	textures[0] = "/nfs/homes/tkonecny/core/so_long/textures/wall.xpm42";
+	textures[1] = "/nfs/homes/tkonecny/core/so_long/textures/player.xpm42";
+	textures[2] = "/nfs/homes/tkonecny/core/so_long/textures/floor.xpm42";
+	textures[3] = "/nfs/homes/tkonecny/core/so_long/textures/collectible.xpm42";
+	textures[4] = "/nfs/homes/tkonecny/core/so_long/textures/door.xpm42";
+	return (textures);
+}
+
