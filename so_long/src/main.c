@@ -6,21 +6,21 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/04 14:46:48 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:02:42 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// void	next_frame(void* param)
-// {
-// 	t_con *prg = (t_con *)param;
-// 	draw_map(prg);
-// 	if (prg->map.px == prg->map.ex && prg->map.py == prg->map.ey)
-// 	{
-// 		ft_printf("You Win !!!!!");
-// 	}
-// }
+void	next_frame(void* param)
+{
+	t_con *prg = (t_con *)param;
+	draw_map(prg);
+	if (prg->map.px == prg->map.ex && prg->map.py == prg->map.ey)
+	{
+		ft_printf("You Win !!!!!");
+	}
+}
 
 void	keypresshandle(mlx_key_data_t keydata, void *param)
 {
@@ -39,22 +39,7 @@ void	keypresshandle(mlx_key_data_t keydata, void *param)
 			move_player(prg, prg->map.px, prg->map.py + 1);
 		draw_map(prg);
 		ft_printf("Number of moves: %d\n", prg->map.mov);
-		int	x;
-		int	y;
-
-		x = 0;
-		y = 0;
-		while (y < 6)
-		{
-			x = 0;
-			while (prg->map.layout[y][x])
-			{
-				ft_printf("%c", prg->map.layout[y][x]);
-				x++;
-			}
-			ft_printf("\n");
-			y++;
-		}
+		draw_layout(prg);
 	}
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
@@ -75,7 +60,7 @@ int32_t	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	argument_check(argv, argc, prg);
 	prg->map = get_map_values(prg->maparg);
-	prg->mlxptr = mlx_init(prg->map.w, prg->map.h, "So_Long", false);
+	prg->mlxptr = mlx_init(prg->map.w * 90, prg->map.h * 90, "So_Long", false);
 	if (!prg->mlxptr)
 	{
 		puts(mlx_strerror(mlx_errno));

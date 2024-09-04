@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/04 14:43:44 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:02:28 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ void			load_images(t_con *prg);
 void			draw_map(t_con *prg);
 char			**initialize_textures(char** textures);
 void			move_player(t_con *prg, int new_x, int new_y);
+void			draw_layout(t_con *prg);
 
 #endif
