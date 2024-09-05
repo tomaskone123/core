@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/04 16:36:07 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/05 15:18:55 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,17 @@
 
 # define TILE_SIZE 90
 
+typedef struct s_textures
+{
+	xpm_t	*wall_xpm;
+	xpm_t	*opendoor_xpm;
+	xpm_t	*player_xpm;
+	xpm_t	*door_xpm;
+	xpm_t	*collectible_xpm;
+	xpm_t	*floor_xpm;
+}				t_textures;
+
+
 typedef struct s_images
 {
 	mlx_image_t	*player;
@@ -31,6 +42,7 @@ typedef struct s_images
 	mlx_image_t	*collectible;
 	mlx_image_t	*floor;
 	mlx_image_t	*exit;
+	mlx_image_t	*opendoor;
 
 }				t_images;
 
@@ -52,12 +64,14 @@ typedef struct s_mapvalues
 	int			py;
 	int			player_count;
 	int			collectibles;
+	int			coll;
 	int			exits;
 }				t_map;
 
 typedef struct s_connections
 {
 	t_images	images;
+	t_textures	textures;
 	mlx_t		*mlxptr;
 	t_map		map;
 	char		*maparg;

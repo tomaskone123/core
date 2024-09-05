@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 16:51:42 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/04 16:38:44 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/05 15:17:39 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	move_player(t_con *prg, int new_x, int new_y)
 	if ((prg->map.layout[new_x][new_y] != '1')
 		&& (prg->map.layout[new_x][new_y] != 'E'))
 	{
-		if (prg->map.layout[new_x][new_y] != 'C')
-			prg->map.collectibles--;
+		if (prg->map.layout[new_x][new_y] == 'C')
+			prg->map.coll--;
 		prg->map.layout[prg->map.px][prg->map.py] = '0';
 		prg->map.layout[new_x][new_y] = 'P';
 		prg->map.px = new_x;
@@ -50,10 +50,21 @@ void	draw_layout(t_con *prg)
 
 char	**initialize_textures(char **textures)
 {
-	textures[0] = "/nfs/homes/tkonecny/core/so_long/textures/wall.xpm42";
-	textures[1] = "/nfs/homes/tkonecny/core/so_long/textures/player.xpm42";
-	textures[2] = "/nfs/homes/tkonecny/core/so_long/textures/floor.xpm42";
-	textures[3] = "/nfs/homes/tkonecny/core/so_long/textures/collectible.xpm42";
-	textures[4] = "/nfs/homes/tkonecny/core/so_long/textures/door.xpm42";
+	textures[0] = "/nfs/homes/tkonecny/core/so_long/textures/brick.xpm42";
+	textures[1] = "/nfs/homes/tkonecny/core/so_long/textures/eud.xpm42";
+	textures[2] = "/nfs/homes/tkonecny/core/so_long/textures/grass.xpm42";
+	textures[3] = "/nfs/homes/tkonecny/core/so_long/textures/beer.xpm42";
+	textures[4] = "/nfs/homes/tkonecny/core/so_long/textures/nexdoor.xpm42";
+	textures[5] = "/nfs/homes/tkonecny/core/so_long/textures/opendoor.xpm42";
 	return (textures);
+}
+
+void	delete_textures(t_con* prg)
+{
+	mlx_delete_xpm42(opendoor_xpm);
+	mlx_delete_xpm42(player_xpm);
+	mlx_delete_xpm42(door_xpm);
+	mlx_delete_xpm42(wall_xpm);
+	mlx_delete_xpm42(collectible_xpm);
+	mlx_delete_xpm42(floor_xpm);
 }

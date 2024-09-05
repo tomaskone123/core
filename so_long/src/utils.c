@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:48:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/04 16:03:01 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/05 15:13:16 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,13 @@ void	fdfail(void)
 
 void	argument_check(char *argv[], int argc, t_con *prg)
 {
+	if (argc == 2)
+	{
+		if (beer_check(argv[2]))
+		{
+			
+		}
+	}
 	if (argc > 2)
 	{
 		ft_printf("Only fist argument is going to be used\n");

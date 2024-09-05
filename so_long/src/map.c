@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:13:20 by tomas             #+#    #+#             */
-/*   Updated: 2024/09/04 14:56:06 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/05 14:16:39 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ int	check_map_values(char **layout, t_map *map)
 		return (0);
 	if (!check_reachability(map->testlayout, map))
 		return (0);
-	ft_printf("Map Dimensions: height=%d, width=%d\n", map->h, map->w);
 	return (1);
 }
 

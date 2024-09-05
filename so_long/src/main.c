@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/04 16:41:22 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/05 12:42:38 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,18 @@ void	next_frame(void *param)
 	t_con	*prg;
 
 	prg = (t_con *)param;
+	if (prg->map.coll == 0)
+	{
+		prg->map.layout[prg->map.ex][prg->map.ey] = 'X';
+	}
 	if (prg->map.px == prg->map.ex && prg->map.py == prg->map.ey)
 	{
-		ft_printf("You Win !!!!!");
+		ft_printf("You Win !!!!!\n");
+		mlx_close_window(prg->mlxptr);
+		free(prg->mlxptr);
+		free(prg);
+		exit(0);
+
 	}
 }
 

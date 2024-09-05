@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:58:45 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/04 12:22:16 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/05 12:35:53 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	check_collectibles(char **layout, t_map *map)
 		ft_printf("Error\nThere are no collectibles");
 		return (0);
 	}
+	map->coll = map->collectibles;
 	return (1);
 }
 
