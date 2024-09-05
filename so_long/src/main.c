@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:15:01 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/05 12:42:38 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/05 15:52:42 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	next_frame(void *param)
 		free(prg->mlxptr);
 		free(prg);
 		exit(0);
-
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:54:08 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/05 15:18:55 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/05 15:52:54 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,13 @@
 
 typedef struct s_textures
 {
-	xpm_t	*wall_xpm;
-	xpm_t	*opendoor_xpm;
-	xpm_t	*player_xpm;
-	xpm_t	*door_xpm;
-	xpm_t	*collectible_xpm;
-	xpm_t	*floor_xpm;
+	xpm_t		*wall_xpm;
+	xpm_t		*opendoor_xpm;
+	xpm_t		*player_xpm;
+	xpm_t		*door_xpm;
+	xpm_t		*collectible_xpm;
+	xpm_t		*floor_xpm;
 }				t_textures;
-
 
 typedef struct s_images
 {
@@ -75,6 +74,7 @@ typedef struct s_connections
 	mlx_t		*mlxptr;
 	t_map		map;
 	char		*maparg;
+	int			beer;
 }				t_con;
 
 void			fdfail(void);
@@ -92,8 +92,10 @@ int				check_reachability(char **layout, t_map *map);
 int				check_size(t_map *map);
 void			load_images(t_con *prg);
 void			draw_map(t_con *prg);
-char			**initialize_textures(char **textures);
+char			**initialize_textures(char **textures, t_con *prg);
 void			move_player(t_con *prg, int new_x, int new_y);
 void			draw_layout(t_con *prg);
+void			delete_textures(t_con *prg);
+int				beer_check(char *beerornobeer);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 16:51:42 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/05 15:17:39 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/05 15:52:48 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,33 @@ void	draw_layout(t_con *prg)
 	}
 }
 
-char	**initialize_textures(char **textures)
+char	**initialize_textures(char **textures, t_con *prg)
 {
 	textures[0] = "/nfs/homes/tkonecny/core/so_long/textures/brick.xpm42";
 	textures[1] = "/nfs/homes/tkonecny/core/so_long/textures/eud.xpm42";
 	textures[2] = "/nfs/homes/tkonecny/core/so_long/textures/grass.xpm42";
-	textures[3] = "/nfs/homes/tkonecny/core/so_long/textures/beer.xpm42";
 	textures[4] = "/nfs/homes/tkonecny/core/so_long/textures/nexdoor.xpm42";
 	textures[5] = "/nfs/homes/tkonecny/core/so_long/textures/opendoor.xpm42";
+	if (prg->beer == 1)
+		textures[3] = "/nfs/homes/tkonecny/core/so_long/textures/beer.xpm42";
+	else
+		textures[3] = "/nfs/homes/tkonecny/core/so_long/textures/pokemon.xpm42";
 	return (textures);
 }
 
-void	delete_textures(t_con* prg)
+void	delete_textures(t_con *prg)
 {
-	mlx_delete_xpm42(opendoor_xpm);
-	mlx_delete_xpm42(player_xpm);
-	mlx_delete_xpm42(door_xpm);
-	mlx_delete_xpm42(wall_xpm);
-	mlx_delete_xpm42(collectible_xpm);
-	mlx_delete_xpm42(floor_xpm);
+	mlx_delete_xpm42(prg->textures.opendoor_xpm);
+	mlx_delete_xpm42(prg->textures.player_xpm);
+	mlx_delete_xpm42(prg->textures.door_xpm);
+	mlx_delete_xpm42(prg->textures.wall_xpm);
+	mlx_delete_xpm42(prg->textures.collectible_xpm);
+	mlx_delete_xpm42(prg->textures.floor_xpm);
+}
+
+int	beer_check(char *beerornobeer)
+{
+	if (!ft_strncmp(beerornobeer, "beer", ft_strlen(beerornobeer)))
+		return (1);
+	return (0);
 }
