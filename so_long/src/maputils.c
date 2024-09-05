@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:58:45 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/05 12:35:53 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/05 16:24:28 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,11 @@ void	flood_fill(char **layout, int x, int y, t_map *map)
 		map->collectibles--;
 	if (layout[x][y] == 'E')
 		map->exits--;
+	if (layout[x][y] == 'E')
+	{
+		layout[x][y] = '1';
+		return ;
+	}
 	layout[x][y] = 'V';
 	flood_fill(layout, x + 1, y, map);
 	flood_fill(layout, x - 1, y, map);
