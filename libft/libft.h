@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 14:23:32 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/07 17:06:54 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/09 14:32:45 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+
+typedef struct s_list
+{
+	void					*content;
+	struct s_list			*next;
+}							t_list;
 
 struct						s_convert
 {
@@ -105,6 +111,6 @@ char						*ft_substr(char const *s, unsigned int start,
 char						**ft_split(char const *s, char c);
 char						*ft_strjoingnl(char *left_str, char *buff);
 char						*get_next_line(int fd);
-
+t_list						*ft_lstnew(void *content);
 
 #endif
