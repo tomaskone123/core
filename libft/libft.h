@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 14:23:32 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/09 14:32:45 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/09 14:39:48 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,6 @@ char						**ft_split(char const *s, char c);
 char						*ft_strjoingnl(char *left_str, char *buff);
 char						*get_next_line(int fd);
 t_list						*ft_lstnew(void *content);
+void						ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif
