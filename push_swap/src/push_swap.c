@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:21:40 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/09 13:27:44 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/09 16:44:50 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int main(int argc, char *argv[])
 {
-	
-	return (1);
+	ft_checkarguments(argc, argv);
+
 }
