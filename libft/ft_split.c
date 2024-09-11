@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 19:15:48 by tomas             #+#    #+#             */
-/*   Updated: 2024/06/07 17:10:39 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:05:25 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,17 @@
 
 static int	ar_mal(char **result, int location, size_t buffer)
 {
+	int	i;
+
+	i = 0;
 	result[location] = malloc(buffer);
 	if (result[location] == NULL)
+	{
+		while (i < location)
+			free(result[i++]);
+		free(result);
 		return (1);
+	}
 	return (0);
 }
 
