@@ -1,0 +1,25 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+	  {
+		"name": "Debug",
+		"type": "cppdbg",
+		"request": "launch",
+		"program": "${workspaceFolder}/push_swap",
+		"args": [
+			"1 2 3 4 5"
+		],
+		"stopAtEntry": false,
+		"cwd": "${workspaceFolder}",
+		"environment": [],
+		"externalConsole": false,
+		"MIMode": "gdb",
+		"miDebuggerPath": "/usr/bin/gdb",
+		"preLaunchTask": "build",
+		"logging": {
+		  "engineLogging": false
+		},
+		"targetArchitecture": "x86_64"
+	  }
+	]
+  }

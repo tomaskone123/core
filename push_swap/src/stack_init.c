@@ -6,8 +6,13 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:52:54 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/11 16:53:09 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:25:54 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	ft_stack_init(t_stack **a, char **argv)
+{
+	
+}
