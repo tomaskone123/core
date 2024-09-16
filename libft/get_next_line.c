@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 18:47:06 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/07 16:55:38 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/12 19:27:27 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_read(int fd, char *left_chars)
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
-	while (!ft_strchr(left_chars, '\n') && bytes_read != 0)
+	while (!ft_strchr_gnl(left_chars, '\n') && bytes_read != 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
@@ -30,7 +30,7 @@ char	*ft_read(int fd, char *left_chars)
 			return (NULL);
 		}
 		buffer[bytes_read] = '\0';
-		left_chars = ft_strjoingnl(left_chars, buffer);
+		left_chars = ft_strjoin_gnl(left_chars, buffer);
 	}
 	free(buffer);
 	return (left_chars);
@@ -78,7 +78,7 @@ char	*get_left_chars(char *left_chars)
 		free(left_chars);
 		return (NULL);
 	}
-	line = (char *)malloc(sizeof(char) * (ft_strlen(left_chars) - i + 1));
+	line = (char *)malloc(sizeof(char) * (ft_strlen_gnl(left_chars) - i + 1));
 	if (!line)
 		return (NULL);
 	i++;

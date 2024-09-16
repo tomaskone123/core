@@ -6,10 +6,9 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:36:55 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/07 17:03:42 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:52:03 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft.h"
 #include <stdarg.h>
@@ -22,7 +21,7 @@ int	print_low_hex(va_list arg)
 	t_variables	v;
 
 	v.remainder = 0;
-	v.hex = malloc (17);
+	v.hex = malloc(17);
 	if (!v.hex)
 		return (-1);
 	v.a = "0123456789abcdef";
@@ -51,7 +50,7 @@ int	print_upp_hex(va_list arg)
 	t_variables	v;
 
 	v.remainder = 0;
-	v.hex = malloc (17);
+	v.hex = malloc(17);
 	if (!v.hex)
 		return (-1);
 	v.a = "0123456789ABCDEF";

@@ -6,13 +6,13 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 18:47:03 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/08/07 16:55:44 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:53:00 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr_gnl(const char *s, int c)
 {
 	char	cc;
 
@@ -30,7 +30,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_gnl(const char *s)
 {
 	int	i;
 
@@ -40,7 +40,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strjoingnl(char *left_str, char *buff)
+char	*ft_strjoin_gnl(char *left_str, char *buff)
 {
 	size_t	i;
 	size_t	j;

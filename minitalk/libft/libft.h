@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 14:23:32 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/09 14:39:48 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:52:18 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,6 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-
-typedef struct s_list
-{
-	void					*content;
-	struct s_list			*next;
-}							t_list;
 
 struct						s_convert
 {
@@ -54,6 +48,8 @@ typedef struct s_gvar
 	void					*ptr;
 }							t_variables;
 
+char						*ft_strchr_gnl(const char *s, int c);
+size_t						ft_strlen_gnl(const char *s);
 int							ft_printf(const char *format, ...);
 int							character_count(const char *format, va_list arg,
 								t_convert f_list[]);
@@ -109,9 +105,7 @@ void						ft_putnbr_fd(int n, int fd);
 char						*ft_substr(char const *s, unsigned int start,
 								size_t len);
 char						**ft_split(char const *s, char c);
-char						*ft_strjoingnl(char *left_str, char *buff);
+char						*ft_strjoin_gnl(char *left_str, char *buff);
 char						*get_next_line(int fd);
-t_list						*ft_lstnew(void *content);
-void						ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif
