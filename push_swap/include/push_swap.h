@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:22:11 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/11 16:48:38 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/16 17:27:46 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,18 @@ typedef struct s_values
 {
 	char**			argv;
 }					t_values;
+
+// Handle errors
+
+// Stack Initiation
+
+// Nodes Initiation
+
+// Stack Utils
+
+// Commands
+
+// Algorithm
 
 
 #endif
