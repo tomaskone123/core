@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:52:54 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/19 12:37:55 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/23 14:51:05 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	add_node(t_stack **a, int n)
 	}
 }
 
-void	ft_stack_init(t_stack **a, char **argv)
+int	ft_stack_init(t_stack **a, char **argv)
 {
 	long	n;
 	int		i;
@@ -65,13 +65,14 @@ void	ft_stack_init(t_stack **a, char **argv)
 	while (argv[i])
 	{
 		if (syntax_error(argv[i]))
-			free_stuff(a);
+			return (0);
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			free_stuff(a);
+			return (0);
 		if (check_duplicates(*a, (int)n))
-			free_stuff(a);
+			return (0);
 		add_node(a, (int)n);
 		i++;
 	}
+	return (1);
 }

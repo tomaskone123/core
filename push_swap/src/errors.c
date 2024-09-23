@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:22:54 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/23 13:36:27 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/23 14:58:21 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,12 @@ int	check_duplicates(t_stack *a, int n)
 		a = a->next;
 	}
 	return (0);
+}
+
+void	free_clean(t_stack **a, t_stack **b, t_values *idk)
+{
+	free_stack(a);
+	free_stack(b);
+	free(idk);
+	exit (EXIT_SUCCESS);
 }
