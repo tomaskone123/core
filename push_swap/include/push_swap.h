@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:22:11 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/19 12:37:41 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:29:40 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,16 @@ int		syntax_error(char* str);
 
 // Stack Utils
 t_stack	*find_last(t_stack	*a);
+int		stack_len(t_stack* a);
+bool	stack_sorted(t_stack* a)
+
 
 // Commands
+void	sa(t_stack **a, bool p);
+void	sb(t_stack **b, bool p);
+void	ss(t_stack **b, t_stack **a, bool p);
+
+
 
 // Algorithm
 
