@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:22:11 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/23 13:29:40 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:34:58 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,21 @@ typedef struct s_values
 
 // Handle errors
 int		syntax_error(char* str);
+void	free_stuff(t_stack **a);
+int		check_duplicates(t_stack *a, int n);
+
 
 
 // Stack Initiation
+void	ft_stack_init(t_stack **a, char **argv);
+
 
 // Nodes Initiation
 
 // Stack Utils
 t_stack	*find_last(t_stack	*a);
 int		stack_len(t_stack* a);
-bool	stack_sorted(t_stack* a)
+bool	stack_sorted(t_stack* a);
 
 
 // Commands

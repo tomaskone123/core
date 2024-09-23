@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:35:36 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/23 13:19:44 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:37:18 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_stack	*find_last(t_stack	*a)
 {
 	if (!a)
-		return;
+		return (0);
 	while (a->next)
 		a = a->next;
 	return (a);
