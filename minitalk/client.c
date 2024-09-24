@@ -6,14 +6,14 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:22:45 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/15 16:18:30 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/23 15:40:41 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include <signal.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <signal.h>
 
 int	ft_isnum(char *c)
 {
@@ -31,7 +31,7 @@ int	ft_isnum(char *c)
 	return (1);
 }
 
-void send_signal(pid_t server_pid, char message)
+void	send_signal(pid_t server_pid, char message)
 {
 	int	i;
 
@@ -42,15 +42,15 @@ void send_signal(pid_t server_pid, char message)
 			kill(server_pid, SIGUSR2);
 		else
 			kill(server_pid, SIGUSR1);
-		usleep(100);
+		usleep(1000);
 		i++;
 	}
 }
 
-int	main(int argc, char* argv[])
+int	main(int argc, char *argv[])
 {
 	pid_t	server_pid;
-	char*	message;
+	char	*message;
 
 	if (argc != 3 || !(ft_strlen(argv[2])) || !(ft_isnum(argv[1])))
 	{
@@ -60,7 +60,6 @@ int	main(int argc, char* argv[])
 	}
 	server_pid = ft_atoi(argv[1]);
 	message = argv[2];
-
 	while (*message)
 	{
 		send_signal(server_pid, *message);

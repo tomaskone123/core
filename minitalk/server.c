@@ -6,14 +6,14 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 15:51:53 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/15 16:20:20 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/23 15:41:52 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <unistd.h>
-#include <stdio.h>
 #include "libft/libft.h"
+#include <signal.h>
+#include <stdio.h>
+#include <unistd.h>
 
 void	signal_handler(int sig)
 {
@@ -33,11 +33,9 @@ void	signal_handler(int sig)
 
 int	main(void)
 {
-	ft_printf("1Server PID: %d\n", getpid());
+	ft_printf("Server PID: %d\n", getpid());
 	signal(SIGUSR1, signal_handler);
 	signal(SIGUSR2, signal_handler);
-
 	while (1)
 		pause();
-
 }

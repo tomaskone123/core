@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:22:11 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/23 14:56:26 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/24 14:48:09 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ bool	stack_sorted(t_stack* a);
 void	sa(t_stack **a, bool p);
 void	sb(t_stack **b, bool p);
 void	ss(t_stack **b, t_stack **a, bool p);
-
+void	pa(t_stack **a, t_stack **b, bool print);
+void	pb(t_stack **b, t_stack **a, bool print);
 
 
 // Algorithm
