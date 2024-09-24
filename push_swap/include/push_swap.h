@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:22:11 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/24 15:01:23 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:08:27 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int		ft_stack_init(t_stack **a, char **argv);
 t_stack	*find_last(t_stack	*a);
 int		stack_len(t_stack* a);
 bool	stack_sorted(t_stack* a);
+t_stack	*smallest(t_stack *a);
+t_stack	*biggest(t_stack *a);
 
 
 // Commands
