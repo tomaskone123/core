@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 14:49:40 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/24 15:00:55 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:03:45 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	reverse(t_stack **a)
 
 	if (!*a || !(*a)->next)
 		return ;
-	last = find_last(a);
+	last = find_last(*a);
 	last->prev->next = NULL;
 	last->next = *a;
 	last->prev = NULL;
@@ -32,7 +32,6 @@ void	rra(t_stack **a, bool print)
 	if (!print)
 		ft_printf("ra\n");
 }
-
 
 void	rrb(t_stack **b, bool print)
 {

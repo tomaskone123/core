@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 14:49:40 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/24 14:56:36 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:03:40 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	rotate(t_stack **a)
 
 	if (!*a || !(*a)->next)
 		return ;
-	last = find_last(a);
+	last = find_last(*a);
 	last->next = *a;
 	*a = (*a)->next;
 	(*a)->prev = NULL;
@@ -32,7 +32,6 @@ void	ra(t_stack **a, bool print)
 	if (!print)
 		ft_printf("ra\n");
 }
-
 
 void	rb(t_stack **b, bool print)
 {

@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:22:47 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/23 13:36:57 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:03:50 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	swap(t_stack **a)
 {
 	if (!*a || !(*a)->next)
-		return;
+		return ;
 	*a = (*a)->next;
 	(*a)->prev->prev = *a;
 	(*a)->prev->next = (*a)->next;

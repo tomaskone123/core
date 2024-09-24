@@ -6,13 +6,13 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:22:54 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/23 14:58:21 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:03:13 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	syntax_error(char* str)
+int	syntax_error(char *str)
 {
 	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
 		return (1);
@@ -28,11 +28,11 @@ int	syntax_error(char* str)
 
 void	free_stack(t_stack **a)
 {
-	t_stack*	tmp;
-	t_stack*	current;
+	t_stack	*tmp;
+	t_stack	*current;
 
 	if (!a)
-		return;
+		return ;
 	current = *a;
 	while (current)
 	{
@@ -69,5 +69,5 @@ void	free_clean(t_stack **a, t_stack **b, t_values *idk)
 	free_stack(a);
 	free_stack(b);
 	free(idk);
-	exit (EXIT_SUCCESS);
+	exit(EXIT_SUCCESS);
 }
