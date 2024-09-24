@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:22:11 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/24 14:48:09 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/24 15:01:23 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,12 @@ void	sb(t_stack **b, bool p);
 void	ss(t_stack **b, t_stack **a, bool p);
 void	pa(t_stack **a, t_stack **b, bool print);
 void	pb(t_stack **b, t_stack **a, bool print);
+void	rr(t_stack **a, t_stack **b, bool print);
+void	ra(t_stack **a, bool print);
+void	rb(t_stack **b, bool print);
+void	rrr(t_stack **a, t_stack **b, bool print);
+void	rra(t_stack **a, bool print);
+void	rrb(t_stack **b, bool print);
 
 
 // Algorithm
