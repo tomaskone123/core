@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:35:36 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/24 17:03:34 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:07:39 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,44 @@ bool	stack_sorted(t_stack *a)
 		a = a->next;
 	}
 	return (true);
+}
+
+t_stack	*biggest(t_stack *a)
+{
+	long	big;
+	t_stack	*max_node;
+
+	if (!a)
+		return (NULL);
+	big = LONG_MIN;
+	while (a)
+	{
+		if (a->nbr > big)
+		{
+			big = a->nbr;
+			max_node = a;
+		}
+		a = a->next;
+	}
+	return (max_node);
+}
+
+t_stack	*smallest(t_stack *a)
+{
+	long	min;
+	t_stack	*min_node;
+
+	if (!a)
+		return (NULL);
+	min = LONG_MAX;
+	while (a)
+	{
+		if (a->nbr < min)
+		{
+			min = a->nbr;
+			min_node = a;
+		}
+		a = a->next;
+	}
+	return (min_node);
 }
