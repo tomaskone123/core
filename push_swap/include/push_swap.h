@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:22:11 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/24 17:08:27 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/29 14:14:52 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,25 +50,25 @@ int		ft_stack_init(t_stack **a, char **argv);
 t_stack	*find_last(t_stack	*a);
 int		stack_len(t_stack* a);
 bool	stack_sorted(t_stack* a);
-t_stack	*smallest(t_stack *a);
-t_stack	*biggest(t_stack *a);
+t_stack	*find_smallest(t_stack *a);
+t_stack	*find_biggest(t_stack *a);
 
 
 // Commands
-void	sa(t_stack **a, bool p);
-void	sb(t_stack **b, bool p);
-void	ss(t_stack **b, t_stack **a, bool p);
-void	pa(t_stack **a, t_stack **b, bool print);
-void	pb(t_stack **b, t_stack **a, bool print);
-void	rr(t_stack **a, t_stack **b, bool print);
-void	ra(t_stack **a, bool print);
-void	rb(t_stack **b, bool print);
-void	rrr(t_stack **a, t_stack **b, bool print);
-void	rra(t_stack **a, bool print);
-void	rrb(t_stack **b, bool print);
+void	sa(t_stack **a);
+void	sb(t_stack **b);
+void	ss(t_stack **b, t_stack **a);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **b, t_stack **a);
+void	rr(t_stack **a, t_stack **b);
+void	ra(t_stack **a);
+void	rb(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
 
 
 // Algorithm
-
+void	sort_three(t_stack **a);
 
 #endif

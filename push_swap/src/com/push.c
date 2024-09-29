@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 14:36:30 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/24 14:47:23 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/29 14:14:10 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,14 @@ static void	push(t_stack **dst, t_stack **src)
 	}
 }
 
-void	pa(t_stack **a, t_stack **b, bool print)
+void	pa(t_stack **a, t_stack **b)
 {
 	push(a, b);
-	if (!print)
-		ft_printf("pa\n");
+	ft_printf("pa\n");
 }
 
-void	pb(t_stack **b, t_stack **a, bool print)
+void	pb(t_stack **b, t_stack **a)
 {
 	push(b, a);
-	if (!print)
-		ft_printf("pb\n");
+	ft_printf("pb\n");
 }

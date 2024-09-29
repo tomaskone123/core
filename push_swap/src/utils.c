@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:35:36 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/24 17:07:39 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:11:45 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ bool	stack_sorted(t_stack *a)
 	return (true);
 }
 
-t_stack	*biggest(t_stack *a)
+t_stack	*find_biggest(t_stack *a)
 {
 	long	big;
 	t_stack	*max_node;
@@ -69,7 +69,7 @@ t_stack	*biggest(t_stack *a)
 	return (max_node);
 }
 
-t_stack	*smallest(t_stack *a)
+t_stack	*find_smallest(t_stack *a)
 {
 	long	min;
 	t_stack	*min_node;

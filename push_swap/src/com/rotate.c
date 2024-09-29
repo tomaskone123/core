@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 14:49:40 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/24 17:03:40 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/29 14:13:37 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,21 @@ static void	rotate(t_stack **a)
 	last->next->next = NULL;
 }
 
-void	ra(t_stack **a, bool print)
+void	ra(t_stack **a)
 {
 	rotate(a);
-	if (!print)
-		ft_printf("ra\n");
+	ft_printf("ra\n");
 }
 
-void	rb(t_stack **b, bool print)
+void	rb(t_stack **b)
 {
 	rotate(b);
-	if (!print)
-		ft_printf("rb\n");
+	ft_printf("rb\n");
 }
 
-void	rr(t_stack **a, t_stack **b, bool print)
+void	rr(t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);
-	if (!print)
-		ft_printf("rr\n");
+	ft_printf("rr\n");
 }

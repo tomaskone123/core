@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 14:49:40 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/24 17:03:45 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/09/29 14:13:53 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,21 @@ static void	reverse(t_stack **a)
 	last->next->prev = last;
 }
 
-void	rra(t_stack **a, bool print)
+void	rra(t_stack **a)
 {
 	reverse(a);
-	if (!print)
-		ft_printf("ra\n");
+	ft_printf("ra\n");
 }
 
-void	rrb(t_stack **b, bool print)
+void	rrb(t_stack **b)
 {
 	reverse(b);
-	if (!print)
-		ft_printf("rb\n");
+	ft_printf("rb\n");
 }
 
-void	rrr(t_stack **a, t_stack **b, bool print)
+void	rrr(t_stack **a, t_stack **b)
 {
 	reverse(a);
 	reverse(b);
-	if (!print)
-		ft_printf("rr\n");
+	ft_printf("rr\n");
 }
