@@ -6,11 +6,27 @@
 /*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 14:21:03 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/10/08 16:43:25 by tomas            ###   ########.fr       */
+/*   Updated: 2024/10/08 19:10:29 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
+{
+	while (*b !=cheapest_node->targer_node && *a != cheapest_node)
+		rr(*a);
+	current_index(*a);
+	current_index(*b);
+}
+
+static void	rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
+{
+	while (*b != cheapest_node->targer_node && *a != cheapest_node)
+		rrr(a, b);
+	current_index(*a);
+	current_index(*b);
+}
 
 static void	a_to_b(t_stack *a, t_stack *b)
 {
@@ -24,6 +40,23 @@ static void	a_to_b(t_stack *a, t_stack *b)
 	prep_for_push(a, cheapest, 'a'); // TODO
 	prep_for_push(a, cheapest->targer_node, 'b'); // TODO
 	pb(b, a);
+}
+
+static void	b_to_a(t_stack **a, t_stack **b)
+{
+	prep_to_push(a, (*b)->targer_node, 'a');
+	pa(a, b);
+}
+
+static void	min_to_top(t_stack **a)
+{
+	while ((*a)->nbr != find_smallest(*a)->nbr)
+	{
+		if (find_smallest(*a)->above_median)
+			re(a);
+		else
+			rra(a);
+	}
 }
 
 void	sort_stack(t_stack **a, t_stack **b)
