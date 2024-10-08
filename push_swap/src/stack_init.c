@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:52:54 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/24 17:07:31 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/10/08 16:36:03 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,17 @@ int	ft_stack_init(t_stack **a, char **argv)
 		i++;
 	}
 	return (1);
+}
+
+t_stack	*get_cheapest(t_stack *a)
+{
+	if (!a)
+		return (NULL);
+	while (a)
+	{
+		if (a->cheapest)
+			return (a);
+		a = a->next;
+	}
+	return (NULL);
 }

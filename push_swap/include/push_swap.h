@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:22:11 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/29 14:14:52 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/10/08 16:37:10 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ typedef struct s_stack
 {
 	long			nbr;
 	long			index;
+	int				cost;
+	bool			above_median;
+	bool			cheapest;
+	struct s_stack	*targer_node;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
@@ -45,6 +49,11 @@ int		ft_stack_init(t_stack **a, char **argv);
 
 
 // Nodes Initiation
+void	init_a(t_stack *a, t_stack *b);
+void	set_cheapest(t_stack *a);
+void	current_index(t_stack *a);
+t_stack	*get_cheapest(t_stack *a);
+
 
 // Stack Utils
 t_stack	*find_last(t_stack	*a);

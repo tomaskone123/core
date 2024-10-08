@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 14:21:03 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/29 14:27:16 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/10/08 16:37:43 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+static void	a_to_b(t_stack *a, t_stack *b)
+{
+	t_stack	*cheapest;
+
+	cheapest = get_cheapest(*a);
+
+}
 
 void	sort_stack(t_stack **a, t_stack **b)
 {
