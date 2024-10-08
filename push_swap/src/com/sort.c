@@ -6,7 +6,7 @@
 /*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 14:21:03 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/10/08 16:37:43 by tomas            ###   ########.fr       */
+/*   Updated: 2024/10/08 16:43:25 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,14 @@ static void	a_to_b(t_stack *a, t_stack *b)
 {
 	t_stack	*cheapest;
 
-	cheapest = get_cheapest(*a);
-
+	cheapest = get_cheapest(a);
+	if (cheapest->above_median && cheapest->targer_node->above_median)
+		rotate_both(a, b, cheapest); // TODO
+	else if (!(cheapest->above_median) && !(cheapest->targer_node->above_median))
+		rev_rotate_both(a, b, cheapest); // TODO
+	prep_for_push(a, cheapest, 'a'); // TODO
+	prep_for_push(a, cheapest->targer_node, 'b'); // TODO
+	pb(b, a);
 }
 
 void	sort_stack(t_stack **a, t_stack **b)
