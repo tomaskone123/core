@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:22:11 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/10/11 19:09:19 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/10/11 19:23:57 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void				init_a(t_stack *a, t_stack *b);
 void				set_cheapest(t_stack *a);
 void				current_index(t_stack *a);
 t_stack				*get_cheapest(t_stack *a);
+void				prep_for_push(t_stack **stack, t_stack *top, char stack_name);
 
 // Stack Utils
 t_stack				*find_last(t_stack *a);

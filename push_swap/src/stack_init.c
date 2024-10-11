@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:52:54 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/10/08 16:36:03 by tomas            ###   ########.fr       */
+/*   Updated: 2024/10/11 19:23:29 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,25 @@ t_stack	*get_cheapest(t_stack *a)
 		a = a->next;
 	}
 	return (NULL);
+}
+
+void	prep_for_push(t_stack **stack, t_stack *top, char stack_name)
+{
+	while (*stack != top)
+	{
+		if (stack_name == 'a')
+		{
+			if (top->above_median)
+				ra(stack);
+			else
+				rra(stack);
+		}
+		else if (stack_name == 'b')
+		{
+			if (top->above_median)
+				rb(stack);
+			else
+				rrb(stack);
+		}
+	}
 }

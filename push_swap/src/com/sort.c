@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 14:21:03 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/10/11 19:09:54 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/10/11 19:31:00 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
 	while (*b != cheapest_node->targer_node && *a != cheapest_node)
-		rr(*a);
+		rr(a, b);
 	current_index(*a);
 	current_index(*b);
 }
@@ -34,18 +34,18 @@ static void	a_to_b(t_stack *a, t_stack *b)
 
 	cheapest = get_cheapest(a);
 	if (cheapest->above_median && cheapest->targer_node->above_median)
-		rotate_both(a, b, cheapest); // TODO
+		rotate_both(&a, &b, cheapest);
 	else if (!(cheapest->above_median)
 		&& !(cheapest->targer_node->above_median))
-		rev_rotate_both(a, b, cheapest);          // TODO
-	prep_for_push(a, cheapest, 'a');              // TODO
-	prep_for_push(a, cheapest->targer_node, 'b'); // TODO
-	pb(b, a);
+		rev_rotate_both(&a, &b, cheapest);
+	prep_for_push(&a, cheapest, 'a');
+	prep_for_push(&	b, cheapest->targer_node, 'b');
+	pb(&b, &a);
 }
 
 static void	b_to_a(t_stack **a, t_stack **b)
 {
-	prep_to_push(a, (*b)->targer_node, 'a');
+	prep_for_push(a, (*b)->targer_node, 'a');
 	pa(a, b);
 }
 
@@ -54,7 +54,7 @@ static void	min_to_top(t_stack **a)
 	while ((*a)->nbr != find_smallest(*a)->nbr)
 	{
 		if (find_smallest(*a)->above_median)
-			re(a);
+			ra(a);
 		else
 			rra(a);
 	}
@@ -75,7 +75,7 @@ void	sort_stack(t_stack **a, t_stack **b)
 	while (!stack_sorted(*a))
 	{
 		init_a(*a, *b);
-		a_to_b(a, b);
+		a_to_b(*a, *b);
 	}
 	sort_three(a);
 	while (*b)
