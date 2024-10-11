@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   a_to_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:45:08 by tomas             #+#    #+#             */
-/*   Updated: 2024/10/08 16:37:03 by tomas            ###   ########.fr       */
+/*   Updated: 2024/10/11 19:09:31 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	current_index(t_stack *a)
 
 static void	target_a(t_stack *a, t_stack *b)
 {
-	t_stack		*current_b;
-	t_stack		*target;
-	long		best_match;
+	t_stack	*current_b;
+	t_stack	*target;
+	long	best_match;
 
 	while (a)
 	{
@@ -74,7 +74,8 @@ static void	cost_a(t_stack *a, t_stack *b)
 			a->cost = len_a - (a->index);
 		if (a->targer_node->above_median)
 			a->cost += a->targer_node->index;
-		else	a->cost += len_b - (a->targer_node->index);
+		else
+			a->cost += len_b - (a->targer_node->index);
 		a = a->next;
 	}
 }
@@ -99,7 +100,7 @@ void	set_cheapest(t_stack *a)
 	cheapest_node->cheapest = true;
 }
 
-	void	init_a(t_stack *a, t_stack *b)
+void	init_a(t_stack *a, t_stack *b)
 {
 	current_index(a);
 	current_index(b);
@@ -107,4 +108,3 @@ void	set_cheapest(t_stack *a)
 	cost_a(a, b);
 	set_cheapest(a);
 }
-
