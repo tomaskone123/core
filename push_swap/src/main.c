@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:21:40 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/29 14:15:35 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/10/13 14:59:29 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	main(int argc, char *argv[])
 			sa(&a);
 		else if (stack_len(a) == 3)
 			sort_three(&a);
-		// else
-		// 	sort_stack(&a, &b);
+		else
+			sort_stack(&a, &b);
 	}
 	printstack(a);
 	free_clean(&a, &b, idk);

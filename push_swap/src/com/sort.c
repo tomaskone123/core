@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 14:21:03 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/10/11 19:31:00 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/10/13 15:10:12 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	a_to_b(t_stack *a, t_stack *b)
 		&& !(cheapest->targer_node->above_median))
 		rev_rotate_both(&a, &b, cheapest);
 	prep_for_push(&a, cheapest, 'a');
-	prep_for_push(&	b, cheapest->targer_node, 'b');
+	prep_for_push(&b, cheapest->targer_node, 'b');
 	pb(&b, &a);
 }
 
@@ -67,12 +67,11 @@ void	sort_stack(t_stack **a, t_stack **b)
 
 	i = 0;
 	len_a = stack_len(*a);
-	while (len_a > 3 && !stack_sorted(*a) && i <= 3)
-	{
+	if (len_a-- > 3 && !stack_sorted(*a))
 		pb(b, a);
-		i++;
-	}
-	while (!stack_sorted(*a))
+	if (len_a-- > 3 && !stack_sorted(*a))
+		pb(b, a);
+	while (len_a-- > 3 && !stack_sorted(*a))
 	{
 		init_a(*a, *b);
 		a_to_b(*a, *b);
@@ -83,6 +82,6 @@ void	sort_stack(t_stack **a, t_stack **b)
 		init_b(*a, *b);
 		b_to_a(a, b);
 	}
-	current(*a);
+	current_index(*a);
 	min_to_top(a);
 }
