@@ -6,27 +6,11 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 14:21:03 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/10/19 20:44:43 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/10/19 21:16:30 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-
-static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
-{
-	while (*b != cheapest_node->targer_node && *a != cheapest_node)
-		rr(a, b);
-	current_index(*a);
-	current_index(*b);
-}
-
-static void	rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
-{
-	while (*b != cheapest_node->targer_node && *a != cheapest_node)
-		rrr(a, b);
-	current_index(*a);
-	current_index(*b);
-}
 
 static void	a_to_b(t_stack **a, t_stack **b)
 {

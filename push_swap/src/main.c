@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:21:40 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/10/13 16:01:05 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/10/19 21:18:22 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,5 @@ int	main(int argc, char *argv[])
 		else
 			sort_stack(&a, &b);
 	}
-	// printstack(a);
 	free_clean(&a, &b, idk);
 }
