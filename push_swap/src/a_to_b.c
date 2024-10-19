@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:45:08 by tomas             #+#    #+#             */
-/*   Updated: 2024/10/11 19:09:31 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/10/19 19:03:16 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	current_index(t_stack *a)
 		else
 			a->above_median = false;
 		a = a->next;
-		i++;
+		++i;
 	}
 }
 
